@@ -7,6 +7,7 @@ const ProductsGalary = () => {
       {products.products.map((product) => (
         <Product
           key={product.id}
+          id={product.id}
           image={product.productImages[0]}
           name={product.category}
           description={product.name}

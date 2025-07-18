@@ -1,13 +1,25 @@
+import { useNavigate } from "react-router-dom";
+
 interface ProductProps {
+  id: number;
   image: string;
   name: string;
   description: string;
   price: number;
 }
 
-const Product = ({ image, name, description, price }: ProductProps) => {
+const Product = ({ id, image, name, description, price }: ProductProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/product/${id}`);
+  };
+
   return (
-    <div className="flex-1 flex flex-col items-center justify-center gap-[16px] cursor-pointer">
+    <div
+      className="flex-1 flex flex-col items-center justify-center gap-[16px] cursor-pointer"
+      onClick={handleClick}
+    >
       <div className="bg-[#F6F6F6] w-full h-full py-[24px] overflow-hidden">
         <img
           src={`/products${image}`}

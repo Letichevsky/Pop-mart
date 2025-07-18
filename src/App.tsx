@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "@/components/Header";
 import MainPage from "@/pages/main-page";
+import ProductPage from "@/pages/product-page";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
         </Routes>
       </div>
     </Router>
