@@ -18,6 +18,7 @@ const ProductPage = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     if (productId) {
@@ -124,6 +125,29 @@ const ProductPage = () => {
               <p className="text-[16px] text-gray-700 leading-relaxed">
                 {product.description}
               </p>
+            </div>
+
+            {/* Выбор количества */}
+            <div className="flex items-center gap-[16px]">
+              <span className="text-[16px] font-[600]">Quantity:</span>
+              <div className="flex items-center border-gray-300">
+                <button
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  disabled={quantity <= 1}
+                  className="w-[40px] h-[40px] flex items-center justify-center bg-white hover:bg-gray-50 disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400 transition-colors select-none rounded-none border-[1px] border-[#000] text-[20px] leading-none pb-[2px]"
+                >
+                  -
+                </button>
+                <span className="w-[60px] h-[40px] flex items-center justify-center bg-white text-center font-[600] text-[20px]">
+                  {quantity}
+                </span>
+                <button
+                  onClick={() => setQuantity(quantity + 1)}
+                  className="w-[40px] h-[40px] flex items-center justify-center bg-white hover:bg-gray-50 transition-colors select-none rounded-none border-[1px] border-[#000] text-[20px] leading-none"
+                >
+                  +
+                </button>
+              </div>
             </div>
 
             <div className="flex gap-[16px] pt-[16px]">
