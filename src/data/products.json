@@ -1,0 +1,140 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "category": "THE MONSTERS",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
+      "description": "Product 1 description",
+      "price": 27.99,
+      "productImages": [
+        "/product1/image16.jpg",
+        "/product1/image17.jpg",
+        "/product1/image18.jpg",
+        "/product1/image19.jpg",
+        "/product1/image20.jpg",
+        "/product1/image21.jpg",
+        "/product1/image22.jpg",
+        "/product1/image23.jpg",
+        "/product1/image24.jpg",
+        "/product1/image25.jpg"
+      ],
+      "pageImages": [
+        "/product1/image26.jpg",
+        "/product1/image27.jpg",
+        "/product1/image28.jpg",
+        "/product1/image29.jpg",
+        "/product1/image30.jpg",
+        "/product1/image31.jpg",
+        "/product1/image32.jpg",
+        "/product1/image33.jpg",
+        "/product1/image34.jpg",
+        "/product1/image35.jpg",
+        "/product1/image36.jpg",
+        "/product1/image37.jpg",
+        "/product1/image38.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "THE MONSTERS",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
+      "description": "Product 1 description",
+      "price": 27.99,
+      "productImages": [
+        "/product1/image16.jpg",
+        "/product1/image17.jpg",
+        "/product1/image18.jpg",
+        "/product1/image19.jpg",
+        "/product1/image20.jpg",
+        "/product1/image21.jpg",
+        "/product1/image22.jpg",
+        "/product1/image23.jpg",
+        "/product1/image24.jpg",
+        "/product1/image25.jpg"
+      ],
+      "pageImages": [
+        "/product1/image26.jpg",
+        "/product1/image27.jpg",
+        "/product1/image28.jpg",
+        "/product1/image29.jpg",
+        "/product1/image30.jpg",
+        "/product1/image31.jpg",
+        "/product1/image32.jpg",
+        "/product1/image33.jpg",
+        "/product1/image34.jpg",
+        "/product1/image35.jpg",
+        "/product1/image36.jpg",
+        "/product1/image37.jpg",
+        "/product1/image38.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "category": "THE MONSTERS",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
+      "description": "Product 1 description",
+      "price": 27.99,
+      "productImages": [
+        "/product1/image16.jpg",
+        "/product1/image17.jpg",
+        "/product1/image18.jpg",
+        "/product1/image19.jpg",
+        "/product1/image20.jpg",
+        "/product1/image21.jpg",
+        "/product1/image22.jpg",
+        "/product1/image23.jpg",
+        "/product1/image24.jpg",
+        "/product1/image25.jpg"
+      ],
+      "pageImages": [
+        "/product1/image26.jpg",
+        "/product1/image27.jpg",
+        "/product1/image28.jpg",
+        "/product1/image29.jpg",
+        "/product1/image30.jpg",
+        "/product1/image31.jpg",
+        "/product1/image32.jpg",
+        "/product1/image33.jpg",
+        "/product1/image34.jpg",
+        "/product1/image35.jpg",
+        "/product1/image36.jpg",
+        "/product1/image37.jpg",
+        "/product1/image38.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "category": "THE MONSTERS",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
+      "description": "Product 1 description",
+      "price": 27.99,
+      "productImages": [
+        "/product1/image16.jpg",
+        "/product1/image17.jpg",
+        "/product1/image18.jpg",
+        "/product1/image19.jpg",
+        "/product1/image20.jpg",
+        "/product1/image21.jpg",
+        "/product1/image22.jpg",
+        "/product1/image23.jpg",
+        "/product1/image24.jpg",
+        "/product1/image25.jpg"
+      ],
+      "pageImages": [
+        "/product1/image26.jpg",
+        "/product1/image27.jpg",
+        "/product1/image28.jpg",
+        "/product1/image29.jpg",
+        "/product1/image30.jpg",
+        "/product1/image31.jpg",
+        "/product1/image32.jpg",
+        "/product1/image33.jpg",
+        "/product1/image34.jpg",
+        "/product1/image35.jpg",
+        "/product1/image36.jpg",
+        "/product1/image37.jpg",
+        "/product1/image38.jpg"
+      ]
+    }
+  ]
+}

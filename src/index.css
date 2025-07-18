@@ -15,6 +15,14 @@
   font-variation-settings: "wdth" 100;
 }
 
+h1 {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
 body {
   background-color: #fff;
 }

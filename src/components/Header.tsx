@@ -6,7 +6,7 @@ import cartIcon from "@/assets/icons/Cart.svg";
 
 const Header: React.FC = () => {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full fixed top-0 left-0 z-50 bg-[#fff]">
       <div className="w-full h-full flex items-center justify-between p-[24px]">
         <div className="flex items-center justify-start h-[30px] rounded-full px-[16px] py-[8px] border border-gray-300 w-[200px]">
           <input

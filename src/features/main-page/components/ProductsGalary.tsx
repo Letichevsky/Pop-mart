@@ -1,0 +1,20 @@
+import Product from "@/features/main-page/components/Product";
+import products from "@/data/products.json";
+
+const ProductsGalary = () => {
+  return (
+    <div className="w-full max-w-[1200px] mx-auto grid grid-cols-4 justify-items-center gap-[32px]">
+      {products.products.map((product) => (
+        <Product
+          key={product.id}
+          image={product.productImages[0]}
+          name={product.category}
+          description={product.name}
+          price={product.price}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default ProductsGalary;
