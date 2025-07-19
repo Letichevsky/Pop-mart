@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import MainPage from "@/pages/main-page";
 import ProductPage from "@/pages/product-page";
 import { CartProvider } from "@/contexts/CartContext";
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<MainPage />} />
             <Route path="/product/:productId" element={<ProductPage />} />
           </Routes>
+          <Footer />
         </div>
         <Toaster />
       </Router>
