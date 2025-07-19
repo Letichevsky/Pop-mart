@@ -1,5 +1,5 @@
 const PageSpacer = () => {
-  return <div className="h-[180px] w-full" />;
+  return <div className="h-[85px] w-full" />;
 };
 
 export default PageSpacer;
