@@ -136,9 +136,8 @@ const initializeState = (): CartState => {
       }
     }
   } catch (error) {
-    console.error("Ошибка при загрузке корзины из localStorage:", error);
+    console.error("error initialize cart from localStorage:", error);
   }
-  console.log("Используется начальное состояние корзины");
   return initialState;
 };
 
@@ -157,7 +156,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         console.log("Корзина сохранена в localStorage:", state);
       }
     } catch (error) {
-      console.error("Ошибка при сохранении корзины в localStorage:", error);
+      console.error("error save cart to localStorage:", error);
     }
   }, [state]);
 

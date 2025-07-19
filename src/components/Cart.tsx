@@ -36,10 +36,10 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
               stiffness: 200,
               duration: 0.3,
             }}
-            className="fixed top-[0] right-[0] h-[100%] w-[50%] bg-[#fff] z-[70]"
+            className="fixed top-[0] right-[0] h-[100vh] w-[50%] bg-[#fff] z-[70] flex flex-col"
           >
             {/* Заголовок с крестиком */}
-            <div className="flex items-center justify-end p-[24px]">
+            <div className="flex items-center justify-end p-[24px] flex-shrink-0">
               <button
                 onClick={onClose}
                 className="w-[24px] h-[24px] flex items-center justify-center bg-[#fff] border-none cursor-pointer"
@@ -61,9 +61,9 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
             </div>
 
             {/* Содержимое корзины */}
-            <div className="p-[24px] flex flex-col h-full">
+            <div className="p-[24px] flex flex-col flex-1 overflow-hidden">
               {/* Заголовок */}
-              <div className="mb-[24px]">
+              <div className="mb-[24px] flex-shrink-0">
                 <h2 className="text-[24px] font-[600] text-[#000] mb-[8px]">
                   Shopping Cart ({state.itemCount} items)
                 </h2>
@@ -73,7 +73,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
               </div>
 
               {/* Список товаров */}
-              <div className="flex-1 overflow-y-auto">
+              <div className="flex-1 overflow-y-auto min-h-0">
                 {state.items.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-full text-center">
                     <p className="text-[18px] text-[#666] mb-[16px]">
@@ -97,12 +97,15 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
 
               {/* Кнопки действий */}
               {state.items.length > 0 && (
-                <div className="mt-[24px] pt-[24px] border-t border-gray-200">
+                <div className="mt-[24px] flex-shrink-0">
                   <div className="flex gap-[16px]">
                     <button className="flex-1 bg-[#000] text-[#fff] px-[32px] py-[16px] hover:bg-[#000]/80 transition-colors uppercase font-[700] border-none cursor-pointer">
                       Checkout
                     </button>
-                    <button className="flex-1 bg-[#f6f6f6] text-[#000] px-[32px] py-[16px] hover:bg-[#f6f6f6]/80 transition-colors uppercase font-[700] border-none cursor-pointer">
+                    <button
+                      onClick={onClose}
+                      className="flex-1 bg-[#f6f6f6] text-[#000] px-[32px] py-[16px] hover:bg-[#f6f6f6]/80 transition-colors uppercase font-[700] border-none cursor-pointer"
+                    >
                       Continue Shopping
                     </button>
                   </div>
