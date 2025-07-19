@@ -109,18 +109,46 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
                 )}
               </div>
 
-              {/* Кнопки действий */}
+              {/* Фиксированный низ с суммой и кнопкой */}
               {state.items.length > 0 && (
-                <div className="mt-[24px] flex-shrink-0">
-                  <div className="flex gap-[16px]">
-                    <button className="flex-1 bg-[#000] text-[#fff] px-[32px] py-[16px] hover:bg-[#000]/80 transition-colors uppercase font-[700] border-none cursor-pointer">
-                      Checkout
-                    </button>
-                    <button
-                      onClick={onClose}
-                      className="flex-1 bg-[#f6f6f6] text-[#000] px-[32px] py-[16px] hover:bg-[#f6f6f6]/80 transition-colors uppercase font-[700] border-none cursor-pointer"
-                    >
-                      Continue Shopping
+                <div className="flex-shrink-0 bg-[#f6f6f6] p-[24px] -mx-[24px] -mb-[24px]">
+                  <div className="space-y-[16px] flex flex-col gap-[8px]">
+                    {/* Строка с subtotal */}
+                    <div className="flex justify-between items-center">
+                      <span className="text-[#000] font-[600]">Subtotal</span>
+                      <span className="text-[#000] font-[700]">
+                        AU${state.total.toFixed(2)}{" "}
+                        <span className="text-[#000] text-[10px]">AUD</span>
+                      </span>
+                    </div>
+
+                    {/* Строка с shipping */}
+                    <div className="flex justify-between items-center">
+                      <span className="text-[#000] font-[600]">Shipping</span>
+                      <span className="text-[#000] text-[14px]">
+                        Calculated at next step
+                      </span>
+                    </div>
+
+                    {/* Разделительная линия */}
+                    <div className="border-t border-[#e0e0e0]"></div>
+
+                    {/* Строка с total */}
+                    <div className="flex justify-between items-center">
+                      <span className="text-[#000] font-[700] text-[18px]">
+                        Total ({state.itemCount})
+                      </span>
+                      <span className="text-[#000] font-[700] text-[20px]">
+                        AU${state.total.toFixed(2)}{" "}
+                        <span className="text-[#000] text-[10px] font-[600]">
+                          AUD
+                        </span>
+                      </span>
+                    </div>
+
+                    {/* Кнопка checkout */}
+                    <button className="w-full bg-[#d20001] hover:bg-[#d20001]/80 text-[#fff] py-[16px] px-[24px] font-[700] uppercase border-none cursor-pointer transition-colors">
+                      Check out
                     </button>
                   </div>
                 </div>
