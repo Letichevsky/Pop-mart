@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import products from "@/data/products.json";
 import PageSpacer from "@/components/PageSpacer";
 import { cn } from "@/utils/cn";
@@ -27,6 +28,7 @@ const ProductPage = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState<"small" | "big">("small");
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
   useEffect(() => {
     if (productId) {
@@ -142,7 +144,7 @@ const ProductPage = () => {
             </div>
 
             {product.sizeImages && (
-              <div className="flex flex-col gap-[8px] pt-[16px]">
+              <div className="flex flex-col gap-[8px]">
                 <p className="text-[20px] text-[#000] uppercase">Size</p>
                 <div className="flex gap-[16px]">
                   <div
@@ -255,23 +257,70 @@ const ProductPage = () => {
               </button>
             </div>
             {/* DETAILS */}
-            <div className="flex flex-col gap-[16px]">
-              <p className="text-[20px] font-[600] text-[#000] uppercase">
-                Details
-              </p>
-              <div className="flex flex-col gap-[8px]">
-                {product.details.map((detail, index) => (
-                  <div key={index} className="flex gap-[8px]">
-                    <p className="text-[16px] font-[600] text-[#000]">
-                      {detail[0]}
-                    </p>
-                    <p className="text-[16px] font-[400] text-[#000]">
-                      {detail[1]}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <motion.div
+              className="flex flex-col gap-[16px] bg-[#f6f6f6] p-[16px]"
+              initial={false}
+            >
+              <motion.div
+                className="flex items-center justify-between cursor-pointer"
+                onClick={() => setIsDetailsOpen(!isDetailsOpen)}
+                whileHover={{ opacity: 0.8 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <p className="text-[16px] font-[600] text-[#000]">Details</p>
+                <motion.div
+                  animate={{ rotate: isDetailsOpen ? 180 : 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="w-[20px] h-[20px] flex items-center justify-center"
+                >
+                  <svg
+                    width="12"
+                    height="8"
+                    viewBox="0 0 12 8"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 1L6 6L11 1"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </motion.div>
+              </motion.div>
+
+              <AnimatePresence>
+                {isDetailsOpen && (
+                  <motion.div
+                    className="flex flex-col gap-[8px]"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    style={{ overflow: "hidden" }}
+                  >
+                    {product.details.map((detail, index) => (
+                      <motion.div
+                        key={index}
+                        className="flex gap-[8px]"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1, duration: 0.3 }}
+                      >
+                        <p className="text-[14px] font-[600] text-[#000]">
+                          {detail[0]}
+                        </p>
+                        <p className="text-[14px] font-[400] text-[#000]">
+                          {detail[1]}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           </div>
         </div>
         <div className="w-full max-w-[800px] mx-auto flex flex-col items-center pt-[64px]">
