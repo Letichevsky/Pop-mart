@@ -21,6 +21,8 @@ interface Product {
   sizeImages?: string[];
 }
 
+type ImageSource = "gallery" | "size";
+
 const ProductPage = () => {
   const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
@@ -29,6 +31,7 @@ const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState<"small" | "big">("small");
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const [imageSource, setImageSource] = useState<ImageSource>("gallery");
 
   useEffect(() => {
     if (productId) {
@@ -43,6 +46,32 @@ const ProductPage = () => {
       }
     }
   }, [productId, navigate]);
+
+  // Функция для получения текущего изображения
+  const getCurrentImage = () => {
+    if (!product) return "";
+
+    if (imageSource === "size" && product.sizeImages) {
+      return product.sizeImages[size === "small" ? 0 : 1];
+    }
+
+    return product.productImages[selectedImage];
+  };
+
+  // Обработчик выбора изображения из галереи
+  const handleGalleryImageSelect = (index: number) => {
+    setSelectedImage(index);
+    setImageSource("gallery");
+  };
+
+  // Обработчик выбора размера
+  const handleSizeSelect = (newSize: "small" | "big") => {
+    setSize(newSize);
+    setImageSource("size");
+    if (quantity > (newSize === "small" ? 12 : 2)) {
+      setQuantity(newSize === "small" ? 12 : 2);
+    }
+  };
 
   if (!product) {
     return (
@@ -89,9 +118,9 @@ const ProductPage = () => {
                 {product.productImages.map((image, index) => (
                   <button
                     key={index}
-                    onClick={() => setSelectedImage(index)}
+                    onClick={() => handleGalleryImageSelect(index)}
                     className={`bg-[#F6F6F6] w-[80px] h-[80px] overflow-hidden border-2 transition-all flex-shrink-0 ${
-                      selectedImage === index
+                      selectedImage === index && imageSource === "gallery"
                         ? "border-black"
                         : "border-transparent hover:border-gray-300"
                     }`}
@@ -109,7 +138,7 @@ const ProductPage = () => {
             {/* Главное изображение */}
             <div className="bg-[#F6F6F6] w-[480px] h-[480px] overflow-hidden">
               <img
-                src={`/products${product.productImages[selectedImage]}`}
+                src={`/products${getCurrentImage()}`}
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
@@ -152,12 +181,7 @@ const ProductPage = () => {
                       "flex gap-[8px] items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
                       size === "small" && "outline outline-[#000]"
                     )}
-                    onClick={() => {
-                      setSize("small");
-                      if (quantity > 12) {
-                        setQuantity(12);
-                      }
-                    }}
+                    onClick={() => handleSizeSelect("small")}
                   >
                     <img
                       src={`/products${product.sizeImages[0]}`}
@@ -178,12 +202,7 @@ const ProductPage = () => {
                       "flex gap-[8px] items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
                       size === "big" && "outline outline-[#000]"
                     )}
-                    onClick={() => {
-                      setSize("big");
-                      if (quantity > 2) {
-                        setQuantity(2);
-                      }
-                    }}
+                    onClick={() => handleSizeSelect("big")}
                   >
                     <img
                       src={`/products${product.sizeImages[1]}`}

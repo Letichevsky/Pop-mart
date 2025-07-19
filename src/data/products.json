@@ -42,7 +42,8 @@
         "/product1/page/image36.jpg",
         "/product1/page/image37.jpg",
         "/product1/page/image38.jpg"
-      ]
+      ],
+      "sizeImages": ["/product1/size/image01.jpg", "/product1/size/image02.jpg"]
     },
     {
       "id": 2,
