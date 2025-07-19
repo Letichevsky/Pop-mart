@@ -1,25 +1,26 @@
 import StatusMark from "@/components/StatusMark";
 import { useNavigate } from "react-router-dom";
 
-interface ProductProps {
+interface CarouselProductProps {
   id: number;
   isHot: boolean;
   isNew: boolean;
   image: string;
+  category: string;
   name: string;
   description: string;
   smallPrice: number;
 }
 
-const Product = ({
+const CarouselProduct = ({
   id,
   isHot,
   isNew,
   image,
+  category,
   name,
-  description,
   smallPrice,
-}: ProductProps) => {
+}: CarouselProductProps) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -30,25 +31,33 @@ const Product = ({
 
   return (
     <div
-      className="flex-1 flex flex-col items-center justify-center gap-[16px] cursor-pointer relative"
+      className="w-full h-full flex flex-col cursor-pointer relative bg-white rounded-sm"
       onClick={handleClick}
     >
       {isHot && <StatusMark status="hot" isAbsolute={true} />}
       {isNew && <StatusMark status="new" isAbsolute={true} />}
-      <div className="bg-[#F6F6F6] w-full h-full py-[24px] overflow-hidden">
+
+      {/* Изображение */}
+      <div className="bg-[#F6F6F6] w-full h-[280px] overflow-hidden">
         <img
           src={`/products${image}`}
           alt={name}
           className="w-full h-full object-cover hover:scale-110 transition-all duration-300"
         />
       </div>
-      <div className="w-full flex flex-col items-start justify-start gap-[16px]">
-        <h3 className="text-[16px]">{name}</h3>
-        <p className="text-[16px]">{description}</p>
-        <p className="text-[20px] font-[500]">${smallPrice}</p>
+
+      {/* Информация о товаре */}
+      <div className="flex flex-col gap-[8px] p-[16px] flex-1">
+        <h3 className="text-[14px] font-semibold text-black uppercase">
+          {category}
+        </h3>
+        <p className="text-[12px] text-gray-600 line-clamp-2">{name}</p>
+        <p className="text-[16px] font-semibold text-black mt-auto">
+          AU${smallPrice}
+        </p>
       </div>
     </div>
   );
 };
 
-export default Product;
+export default CarouselProduct;

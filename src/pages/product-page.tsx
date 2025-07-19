@@ -5,6 +5,7 @@ import products from "@/data/products.json";
 import PageSpacer from "@/components/PageSpacer";
 import { cn } from "@/utils/cn";
 import StatusMark from "@/components/StatusMark";
+import ProductsCarousel from "@/components/ProductsCarousel";
 
 interface Product {
   id: number;
@@ -34,6 +35,9 @@ const ProductPage = () => {
   const [imageSource, setImageSource] = useState<ImageSource>("gallery");
 
   useEffect(() => {
+    // Скролл наверх при загрузке страницы
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     if (productId) {
       const foundProduct = products.products.find(
         (p) => p.id === parseInt(productId)
@@ -348,6 +352,9 @@ const ProductPage = () => {
             />
           ))}
         </div>
+
+        {/* Карусель товаров */}
+        <ProductsCarousel currentProductId={product.id} />
       </div>
     </div>
   );
