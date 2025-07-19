@@ -156,9 +156,8 @@
       "isNew": false,
       "category": "THE MONSTERS",
       "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
-      "description": "Product 1 description",
-      "smallPrice": 27.99,
-      "bigPrice": 167.99,
+      "description": "Product 3 description",
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
         ["Size:", "Height about 15cm"],
@@ -167,43 +166,24 @@
         ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
-        "/product1/gallary/image16.jpg",
-        "/product1/gallary/image17.jpg",
-        "/product1/gallary/image18.jpg",
-        "/product1/gallary/image19.jpg",
-        "/product1/gallary/image20.jpg",
-        "/product1/gallary/image21.jpg",
-        "/product1/gallary/image22.jpg",
-        "/product1/gallary/image23.jpg",
-        "/product1/gallary/image24.jpg",
-        "/product1/gallary/image25.jpg"
+        "/product5/gallary/image01.jpg",
+        "/product5/gallary/image02.jpg",
+        "/product5/gallary/image03.jpg"
       ],
       "pageImages": [
-        "/product1/page/image26.jpg",
-        "/product1/page/image27.jpg",
-        "/product1/page/image28.jpg",
-        "/product1/page/image29.jpg",
-        "/product1/page/image30.jpg",
-        "/product1/page/image31.jpg",
-        "/product1/page/image32.jpg",
-        "/product1/page/image33.jpg",
-        "/product1/page/image34.jpg",
-        "/product1/page/image35.jpg",
-        "/product1/page/image36.jpg",
-        "/product1/page/image37.jpg",
-        "/product1/page/image38.jpg"
-      ],
-      "sizeImages": ["/product1/size/image01.jpg", "/product1/size/image02.jpg"]
+        "/product5/page/image01.jpg",
+        "/product5/page/image02.jpg",
+        "/product5/page/image03.jpg"
+      ]
     },
     {
       "id": 6,
       "isHot": false,
-      "isNew": true,
+      "isNew": false,
       "category": "THE MONSTERS",
       "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
-      "description": "Product 2 description",
-      "smallPrice": 27.99,
-      "bigPrice": 177.99,
+      "description": "Product 3 description",
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
         ["Size:", "Height about 15cm"],
@@ -212,22 +192,37 @@
         ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
-        "/product2/gallary/image01.jpg",
-        "/product2/gallary/image02.jpg",
-        "/product2/gallary/image03.jpg",
-        "/product2/gallary/image04.jpg",
-        "/product2/gallary/image05.jpg",
-        "/product2/gallary/image06.jpg",
-        "/product2/gallary/image07.jpg",
-        "/product2/gallary/image08.jpg"
+        "/product6/gallary/image01.jpg",
+        "/product6/gallary/image02.jpg",
+        "/product6/gallary/image03.jpg",
+        "/product6/gallary/image04.jpg",
+        "/product6/gallary/image05.jpg",
+        "/product6/gallary/image06.jpg",
+        "/product6/gallary/image07.jpg",
+        "/product6/gallary/image08.jpg"
       ],
       "pageImages": [
-        "/product2/page/image01.jpg",
-        "/product2/page/image02.jpg",
-        "/product2/page/image03.jpg",
-        "/product2/page/image04.jpg"
+        "/product6/page/image01.jpg",
+        "/product6/page/image02.jpg",
+        "/product6/page/image03.jpg",
+        "/product6/page/image04.jpg",
+        "/product6/page/image05.jpg",
+        "/product6/page/image06.jpg",
+        "/product6/page/image07.jpg",
+        "/product6/page/image08.jpg",
+        "/product6/page/image09.jpg",
+        "/product6/page/image10.jpg",
+        "/product6/page/image11.jpg",
+        "/product6/page/image12.jpg",
+        "/product6/page/image13.jpg",
+        "/product6/page/image14.jpg",
+        "/product6/page/image15.jpg",
+        "/product6/page/image16.jpg",
+        "/product6/page/image17.jpg",
+        "/product6/page/image18.jpg",
+        "/product6/page/image19.jpg"
       ],
-      "sizeImages": ["/product2/size/image01.jpg", "/product2/size/image02.jpg"]
+      "sizeImages": ["/product6/size/image01.jpg", "/product6/size/image02.jpg"]
     },
     {
       "id": 7,
@@ -236,8 +231,7 @@
       "category": "THE MONSTERS",
       "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 3 description",
-      "smallPrice": 27.99,
-      "bigPrice": 277.99,
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
         ["Size:", "Height about 15cm"],
@@ -246,26 +240,33 @@
         ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
-        "/product3/gallary/image01.jpg",
-        "/product3/gallary/image02.jpg",
-        "/product3/gallary/image03.jpg",
-        "/product3/gallary/image04.jpg",
-        "/product3/gallary/image05.jpg",
-        "/product3/gallary/image06.jpg",
-        "/product3/gallary/image07.jpg",
-        "/product3/gallary/image08.jpg"
+        "/product7/gallary/image01.jpg",
+        "/product7/gallary/image02.jpg",
+        "/product7/gallary/image03.jpg",
+        "/product7/gallary/image04.jpg",
+        "/product7/gallary/image05.jpg",
+        "/product7/gallary/image06.jpg",
+        "/product7/gallary/image07.jpg",
+        "/product7/gallary/image08.jpg",
+        "/product7/gallary/image09.jpg",
+        "/product7/gallary/image10.jpg",
+        "/product7/gallary/image11.jpg",
+        "/product7/gallary/image12.jpg",
+        "/product7/gallary/image13.jpg",
+        "/product7/gallary/image14.jpg",
+        "/product7/gallary/image15.jpg",
+        "/product7/gallary/image16.jpg",
+        "/product7/gallary/image17.jpg",
+        "/product7/gallary/image18.jpg"
       ],
       "pageImages": [
-        "/product3/page/image01.jpg",
-        "/product3/page/image02.jpg",
-        "/product3/page/image03.jpg",
-        "/product3/page/image04.jpg",
-        "/product3/page/image05.jpg",
-        "/product3/page/image06.jpg",
-        "/product3/page/image07.jpg",
-        "/product3/page/image08.jpg"
+        "/product7/page/image01.jpg",
+        "/product7/page/image02.jpg",
+        "/product7/page/image03.jpg",
+        "/product7/page/image04.jpg",
+        "/product7/page/image05.jpg"
       ],
-      "sizeImages": ["/product3/size/image01.jpg", "/product3/size/image02.jpg"]
+      "sizeImages": ["/product7/size/image01.jpg", "/product7/size/image02.jpg"]
     },
     {
       "id": 8,
@@ -283,32 +284,43 @@
         ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
-        "/product4/gallary/image01.jpg",
-        "/product4/gallary/image02.jpg",
-        "/product4/gallary/image03.jpg",
-        "/product4/gallary/image04.jpg",
-        "/product4/gallary/image05.jpg"
+        "/product8/gallary/image01.jpg",
+        "/product8/gallary/image02.jpg",
+        "/product8/gallary/image03.jpg",
+        "/product8/gallary/image04.jpg",
+        "/product8/gallary/image05.jpg",
+        "/product8/gallary/image06.jpg",
+        "/product8/gallary/image07.jpg",
+        "/product8/gallary/image08.jpg",
+        "/product8/gallary/image09.jpg",
+        "/product8/gallary/image10.jpg",
+        "/product8/gallary/image11.jpg",
+        "/product8/gallary/image12.jpg"
       ],
       "pageImages": [
-        "/product4/page/image01.jpg",
-        "/product4/page/image02.jpg",
-        "/product4/page/image03.jpg",
-        "/product4/page/image04.jpg",
-        "/product4/page/image05.jpg",
-        "/product4/page/image06.jpg",
-        "/product4/page/image07.jpg",
-        "/product4/page/image08.jpg"
-      ]
+        "/product8/page/image01.jpg",
+        "/product8/page/image02.jpg",
+        "/product8/page/image03.jpg",
+        "/product8/page/image04.jpg",
+        "/product8/page/image05.jpg",
+        "/product8/page/image06.jpg",
+        "/product8/page/image07.jpg",
+        "/product8/page/image08.jpg",
+        "/product8/page/image09.jpg",
+        "/product8/page/image10.jpg",
+        "/product8/page/image11.jpg",
+        "/product8/page/image12.jpg"
+      ],
+      "sizeImages": ["/product8/size/image01.jpg", "/product8/size/image02.jpg"]
     },
     {
       "id": 9,
-      "isHot": true,
+      "isHot": false,
       "isNew": false,
       "category": "THE MONSTERS",
       "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
-      "description": "Product 1 description",
-      "smallPrice": 27.99,
-      "bigPrice": 167.99,
+      "description": "Product 3 description",
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
         ["Size:", "Height about 15cm"],
@@ -317,43 +329,31 @@
         ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
-        "/product1/gallary/image16.jpg",
-        "/product1/gallary/image17.jpg",
-        "/product1/gallary/image18.jpg",
-        "/product1/gallary/image19.jpg",
-        "/product1/gallary/image20.jpg",
-        "/product1/gallary/image21.jpg",
-        "/product1/gallary/image22.jpg",
-        "/product1/gallary/image23.jpg",
-        "/product1/gallary/image24.jpg",
-        "/product1/gallary/image25.jpg"
+        "/product9/gallary/image01.jpg",
+        "/product9/gallary/image02.jpg",
+        "/product9/gallary/image03.jpg",
+        "/product9/gallary/image04.jpg",
+        "/product9/gallary/image05.jpg"
       ],
       "pageImages": [
-        "/product1/page/image26.jpg",
-        "/product1/page/image27.jpg",
-        "/product1/page/image28.jpg",
-        "/product1/page/image29.jpg",
-        "/product1/page/image30.jpg",
-        "/product1/page/image31.jpg",
-        "/product1/page/image32.jpg",
-        "/product1/page/image33.jpg",
-        "/product1/page/image34.jpg",
-        "/product1/page/image35.jpg",
-        "/product1/page/image36.jpg",
-        "/product1/page/image37.jpg",
-        "/product1/page/image38.jpg"
-      ],
-      "sizeImages": ["/product1/size/image01.jpg", "/product1/size/image02.jpg"]
+        "/product9/page/image01.jpg",
+        "/product9/page/image02.jpg",
+        "/product9/page/image03.jpg",
+        "/product9/page/image04.jpg",
+        "/product9/page/image05.jpg",
+        "/product9/page/image06.jpg",
+        "/product9/page/image07.jpg",
+        "/product9/page/image08.jpg"
+      ]
     },
     {
       "id": 10,
       "isHot": false,
-      "isNew": true,
+      "isNew": false,
       "category": "THE MONSTERS",
       "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
-      "description": "Product 2 description",
-      "smallPrice": 27.99,
-      "bigPrice": 177.99,
+      "description": "Product 3 description",
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
         ["Size:", "Height about 15cm"],
@@ -362,22 +362,20 @@
         ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
-        "/product2/gallary/image01.jpg",
-        "/product2/gallary/image02.jpg",
-        "/product2/gallary/image03.jpg",
-        "/product2/gallary/image04.jpg",
-        "/product2/gallary/image05.jpg",
-        "/product2/gallary/image06.jpg",
-        "/product2/gallary/image07.jpg",
-        "/product2/gallary/image08.jpg"
+        "/product10/gallary/image01.jpg",
+        "/product10/gallary/image02.jpg",
+        "/product10/gallary/image03.jpg",
+        "/product10/gallary/image04.jpg",
+        "/product10/gallary/image05.jpg"
       ],
       "pageImages": [
-        "/product2/page/image01.jpg",
-        "/product2/page/image02.jpg",
-        "/product2/page/image03.jpg",
-        "/product2/page/image04.jpg"
-      ],
-      "sizeImages": ["/product2/size/image01.jpg", "/product2/size/image02.jpg"]
+        "/product10/page/image01.jpg",
+        "/product10/page/image02.jpg",
+        "/product10/page/image03.jpg",
+        "/product10/page/image04.jpg",
+        "/product10/page/image05.jpg",
+        "/product10/page/image06.jpg"
+      ]
     },
     {
       "id": 11,
@@ -386,8 +384,7 @@
       "category": "THE MONSTERS",
       "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 3 description",
-      "smallPrice": 27.99,
-      "bigPrice": 277.99,
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
         ["Size:", "Height about 15cm"],
@@ -396,26 +393,22 @@
         ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
-        "/product3/gallary/image01.jpg",
-        "/product3/gallary/image02.jpg",
-        "/product3/gallary/image03.jpg",
-        "/product3/gallary/image04.jpg",
-        "/product3/gallary/image05.jpg",
-        "/product3/gallary/image06.jpg",
-        "/product3/gallary/image07.jpg",
-        "/product3/gallary/image08.jpg"
+        "/product11/gallary/image01.jpg",
+        "/product11/gallary/image02.jpg",
+        "/product11/gallary/image03.jpg",
+        "/product11/gallary/image04.jpg",
+        "/product11/gallary/image05.jpg",
+        "/product11/gallary/image06.jpg",
+        "/product11/gallary/image07.jpg"
       ],
       "pageImages": [
-        "/product3/page/image01.jpg",
-        "/product3/page/image02.jpg",
-        "/product3/page/image03.jpg",
-        "/product3/page/image04.jpg",
-        "/product3/page/image05.jpg",
-        "/product3/page/image06.jpg",
-        "/product3/page/image07.jpg",
-        "/product3/page/image08.jpg"
-      ],
-      "sizeImages": ["/product3/size/image01.jpg", "/product3/size/image02.jpg"]
+        "/product11/page/image01.jpg",
+        "/product11/page/image02.jpg",
+        "/product11/page/image03.jpg",
+        "/product11/page/image04.jpg",
+        "/product11/page/image05.jpg",
+        "/product11/page/image06.jpg"
+      ]
     },
     {
       "id": 12,
@@ -433,21 +426,20 @@
         ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
-        "/product4/gallary/image01.jpg",
-        "/product4/gallary/image02.jpg",
-        "/product4/gallary/image03.jpg",
-        "/product4/gallary/image04.jpg",
-        "/product4/gallary/image05.jpg"
+        "/product12/gallary/image01.jpg",
+        "/product12/gallary/image02.jpg",
+        "/product12/gallary/image03.jpg",
+        "/product12/gallary/image04.jpg",
+        "/product12/gallary/image05.jpg"
       ],
       "pageImages": [
-        "/product4/page/image01.jpg",
-        "/product4/page/image02.jpg",
-        "/product4/page/image03.jpg",
-        "/product4/page/image04.jpg",
-        "/product4/page/image05.jpg",
-        "/product4/page/image06.jpg",
-        "/product4/page/image07.jpg",
-        "/product4/page/image08.jpg"
+        "/product12/page/image01.jpg",
+        "/product12/page/image02.jpg",
+        "/product12/page/image03.jpg",
+        "/product12/page/image04.jpg",
+        "/product12/page/image05.jpg",
+        "/product12/page/image06.jpg",
+        "/product12/page/image07.jpg"
       ]
     }
   ]
