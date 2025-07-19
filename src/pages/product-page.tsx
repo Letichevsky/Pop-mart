@@ -6,6 +6,7 @@ import PageSpacer from "@/components/PageSpacer";
 import { cn } from "@/utils/cn";
 import StatusMark from "@/components/StatusMark";
 import ProductsCarousel from "@/components/ProductsCarousel";
+import { useCart } from "@/contexts/useCart";
 
 interface Product {
   id: number;
@@ -27,6 +28,7 @@ type ImageSource = "gallery" | "size";
 const ProductPage = () => {
   const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
+  const { addItem } = useCart();
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -275,7 +277,26 @@ const ProductPage = () => {
             </div>
             {/* BUTTONS */}
             <div className="flex gap-[16px]">
-              <button className="bg-[#000] text-[#fff] px-[32px] py-[16px] hover:bg-[#000]/80 transition-colors uppercase font-[700] border-none cursor-pointer">
+              <button
+                onClick={() => {
+                  if (product) {
+                    addItem({
+                      id: product.id,
+                      name: product.name,
+                      description: product.description,
+                      price:
+                        size === "small"
+                          ? product.smallPrice
+                          : product.bigPrice || product.smallPrice,
+                      image: product.productImages[0],
+                      quantity,
+                      size: product.sizeImages ? size : undefined,
+                      category: product.category,
+                    });
+                  }
+                }}
+                className="bg-[#000] text-[#fff] px-[32px] py-[16px] hover:bg-[#000]/80 transition-colors uppercase font-[700] border-none cursor-pointer"
+              >
                 Add to cart
               </button>
               <button className=" text-[#fff] bg-[#d20001] px-[32px] py-[16px] hover:bg-[#d20001]/80 transition-colors uppercase font-[700] border-none cursor-pointer">

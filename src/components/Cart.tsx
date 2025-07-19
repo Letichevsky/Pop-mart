@@ -1,5 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCart } from "@/contexts/useCart";
+import CartItem from "./CartItem";
 
 interface CartProps {
   isOpen: boolean;
@@ -7,6 +9,8 @@ interface CartProps {
 }
 
 const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
+  const { state } = useCart();
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -57,8 +61,53 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
             </div>
 
             {/* Содержимое корзины */}
-            <div className="p-[24px]">
-              {/* Здесь будет содержимое корзины */}
+            <div className="p-[24px] flex flex-col h-full">
+              {/* Заголовок */}
+              <div className="mb-[24px]">
+                <h2 className="text-[24px] font-[600] text-[#000] mb-[8px]">
+                  Shopping Cart ({state.itemCount} items)
+                </h2>
+                <p className="text-[16px] text-[#666]">
+                  Total: ${state.total.toFixed(2)}
+                </p>
+              </div>
+
+              {/* Список товаров */}
+              <div className="flex-1 overflow-y-auto">
+                {state.items.length === 0 ? (
+                  <div className="flex flex-col items-center justify-center h-full text-center">
+                    <p className="text-[18px] text-[#666] mb-[16px]">
+                      Your cart is empty
+                    </p>
+                    <p className="text-[14px] text-[#999]">
+                      Add some products to get started
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-[0px]">
+                    {state.items.map((item, index) => (
+                      <CartItem
+                        key={`${item.id}-${item.size || "default"}-${index}`}
+                        item={item}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Кнопки действий */}
+              {state.items.length > 0 && (
+                <div className="mt-[24px] pt-[24px] border-t border-gray-200">
+                  <div className="flex gap-[16px]">
+                    <button className="flex-1 bg-[#000] text-[#fff] px-[32px] py-[16px] hover:bg-[#000]/80 transition-colors uppercase font-[700] border-none cursor-pointer">
+                      Checkout
+                    </button>
+                    <button className="flex-1 bg-[#f6f6f6] text-[#000] px-[32px] py-[16px] hover:bg-[#f6f6f6]/80 transition-colors uppercase font-[700] border-none cursor-pointer">
+                      Continue Shopping
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
         </>

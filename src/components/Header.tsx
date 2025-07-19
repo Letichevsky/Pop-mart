@@ -4,9 +4,11 @@ import popMartLogo from "@/assets/pop-mart_logo.svg";
 import searchIcon from "@/assets/icons/Search.svg";
 import cartIcon from "@/assets/icons/Cart.svg";
 import Cart from "./Cart";
+import { useCart } from "@/contexts/useCart";
 
 const Header: React.FC = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const { state } = useCart();
 
   const handleCartClick = () => {
     setIsCartOpen(true);
@@ -43,7 +45,7 @@ const Header: React.FC = () => {
               onClick={handleCartClick}
             >
               <img src={cartIcon} alt="Cart" className="w-[24px] h-[24px]" />
-              <p className="select-none">0</p>
+              <p className="select-none">{state.itemCount}</p>
             </div>
           </div>
         </div>
