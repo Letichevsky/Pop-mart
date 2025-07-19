@@ -31,14 +31,14 @@ const CarouselProduct = ({
 
   return (
     <div
-      className="w-full h-full flex flex-col cursor-pointer relative bg-white rounded-sm"
+      className="w-full h-full flex flex-col cursor-pointer relative bg-[#fff] select-none"
       onClick={handleClick}
     >
       {isHot && <StatusMark status="hot" isAbsolute={true} />}
       {isNew && <StatusMark status="new" isAbsolute={true} />}
 
       {/* Изображение */}
-      <div className="bg-[#F6F6F6] w-full h-[280px] overflow-hidden">
+      <div className="bg-[#F6F6F6] w-[100%] h-[280px] overflow-hidden">
         <img
           src={`/products${image}`}
           alt={name}

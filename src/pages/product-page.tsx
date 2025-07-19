@@ -44,6 +44,12 @@ const ProductPage = () => {
       );
       if (foundProduct) {
         setProduct(foundProduct);
+        // Сброс всех значений на дефолтные
+        setSelectedImage(0);
+        setQuantity(1);
+        setSize("small");
+        setIsDetailsOpen(false);
+        setImageSource("gallery");
       } else {
         // Если продукт не найден, перенаправляем на главную
         navigate("/");

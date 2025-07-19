@@ -30,11 +30,6 @@ const ProductsCarousel = ({ currentProductId }: ProductsCarouselProps) => {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
-          pagination={{
-            clickable: true,
-            el: ".swiper-pagination",
-            type: "fraction",
-          }}
           breakpoints={{
             320: {
               slidesPerView: 1,
@@ -82,7 +77,7 @@ const ProductsCarousel = ({ currentProductId }: ProductsCarouselProps) => {
         <div className="swiper-button-next" />
 
         {/* Кастомная пагинация */}
-        <div className="swiper-pagination !top-[-40px] !right-0 !bottom-auto !text-[14px] !font-medium" />
+        <div className="swiper-pagination !top-[-16px] !right-[24px] !bottom-auto !text-[14px] !font-medium !text-right" />
       </div>
     </div>
   );
