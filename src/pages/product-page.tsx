@@ -132,40 +132,50 @@ const ProductPage = () => {
               <p className="text-[24px] font-[600] text-[#d20001]">
                 ${product.smallPrice}
               </p>
-              <p className="text-[14px] font-[600] text-[#d20001]">
-                Estimated Shipping Date: Sep 14, 2025
+              <p className="text-[12px] text-[#000]">
+                Estimated Shipping Date:{" "}
+                {new Date(
+                  Date.now() + 3 * 24 * 60 * 60 * 1000
+                ).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
               </p>
             </div>
 
             {product.sizeImages && (
-              <div className="flex gap-[16px] pt-[16px]">
-                <div
-                  className={cn(
-                    "flex gap-[8px] items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
-                    size === "small" && "outline outline-[#000]"
-                  )}
-                  onClick={() => setSize("small")}
-                >
-                  <img
-                    src={`/products${product.sizeImages[0]}`}
-                    alt="single box"
-                    className="w-[40px] h-[40px] object-cover"
-                  />
-                  <p className="text-[14px]">Single box</p>
-                </div>
-                <div
-                  className={cn(
-                    "flex gap-[8px] items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
-                    size === "big" && "outline outline-[#000]"
-                  )}
-                  onClick={() => setSize("big")}
-                >
-                  <img
-                    src={`/products${product.sizeImages[1]}`}
-                    alt="single box"
-                    className="w-[40px] h-[40px] object-cover"
-                  />
-                  <p className="text-[14px]">Whole set</p>
+              <div className="flex flex-col gap-[8px] pt-[16px]">
+                <p className="text-[20px] text-[#000] uppercase">Size</p>
+                <div className="flex gap-[16px]">
+                  <div
+                    className={cn(
+                      "flex gap-[8px] items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
+                      size === "small" && "outline outline-[#000]"
+                    )}
+                    onClick={() => setSize("small")}
+                  >
+                    <img
+                      src={`/products${product.sizeImages[0]}`}
+                      alt="single box"
+                      className="w-[40px] h-[40px] object-cover"
+                    />
+                    <p className="text-[14px]">Single box</p>
+                  </div>
+                  <div
+                    className={cn(
+                      "flex gap-[8px] items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
+                      size === "big" && "outline outline-[#000]"
+                    )}
+                    onClick={() => setSize("big")}
+                  >
+                    <img
+                      src={`/products${product.sizeImages[1]}`}
+                      alt="single box"
+                      className="w-[40px] h-[40px] object-cover"
+                    />
+                    <p className="text-[14px]">Whole set</p>
+                  </div>
                 </div>
               </div>
             )}
