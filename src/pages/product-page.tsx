@@ -2,15 +2,27 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import products from "@/data/products.json";
 import PageSpacer from "@/components/PageSpacer";
+import { cn } from "@/utils/cn";
 
 interface Product {
   id: number;
   category: string;
   name: string;
   description: string;
-  price: number;
+  smallPrice: number;
+  bigPrice?: number;
+  shippingInformation: string;
+  launchTime: string;
+  designer: string;
+  releaseDate: string;
+  size: string;
+  material: string;
+  stuffing: string;
+  notSuitableFor: string;
+  note: string;
   productImages: string[];
   pageImages: string[];
+  sizeImages?: string[];
 }
 
 const ProductPage = () => {
@@ -19,6 +31,7 @@ const ProductPage = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = useState<"small" | "big">("small");
 
   useEffect(() => {
     if (productId) {
@@ -117,9 +130,45 @@ const ProductPage = () => {
 
             <div>
               <p className="text-[24px] font-[600] text-[#d20001]">
-                ${product.price}
+                ${product.smallPrice}
+              </p>
+              <p className="text-[14px] font-[600] text-[#d20001]">
+                Estimated Shipping Date: Sep 14, 2025
               </p>
             </div>
+
+            {product.sizeImages && (
+              <div className="flex gap-[16px] pt-[16px]">
+                <div
+                  className={cn(
+                    "flex gap-[8px] items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
+                    size === "small" && "outline outline-[#000]"
+                  )}
+                  onClick={() => setSize("small")}
+                >
+                  <img
+                    src={`/products${product.sizeImages[0]}`}
+                    alt="single box"
+                    className="w-[40px] h-[40px] object-cover"
+                  />
+                  <p className="text-[14px]">Single box</p>
+                </div>
+                <div
+                  className={cn(
+                    "flex gap-[8px] items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
+                    size === "big" && "outline outline-[#000]"
+                  )}
+                  onClick={() => setSize("big")}
+                >
+                  <img
+                    src={`/products${product.sizeImages[1]}`}
+                    alt="single box"
+                    className="w-[40px] h-[40px] object-cover"
+                  />
+                  <p className="text-[14px]">Whole set</p>
+                </div>
+              </div>
+            )}
 
             <div>
               <p className="text-[16px] text-gray-700 leading-relaxed">
@@ -149,7 +198,6 @@ const ProductPage = () => {
                 </button>
               </div>
             </div>
-
             <div className="flex gap-[16px] pt-[16px]">
               <button className="bg-[#000] text-[#fff] px-[32px] py-[16px] hover:bg-[#000]/80 transition-colors uppercase font-[700] border-none cursor-pointer">
                 Add to cart

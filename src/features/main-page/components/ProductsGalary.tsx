@@ -11,7 +11,7 @@ const ProductsGalary = () => {
           image={product.productImages[0]}
           name={product.category}
           description={product.name}
-          price={product.price}
+          smallPrice={product.smallPrice}
         />
       ))}
     </div>
