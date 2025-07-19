@@ -98,13 +98,6 @@ const ProductPage = () => {
             {" "}
             /{" "}
           </span>
-          <span className="font-[600] text-[14px] cursor-pointer">
-            {product.category}
-          </span>
-          <span className="mx-2 font-[600] text-[14px] cursor-pointer">
-            {" "}
-            /{" "}
-          </span>
           <span className="text-[#d20001] font-[600] text-[14px] cursor-pointer">
             {product.name}
           </span>

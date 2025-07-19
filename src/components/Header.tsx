@@ -32,9 +32,9 @@ const Header: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-[48px] flex items-center justify-center gap-[24px] border-t border-b border-[#E5E5E5]">
-        <p className="text-[12px] uppercase font-300 cursor-pointer">
-          new & featured
+      <div className="w-full flex items-center justify-center gap-[24px] border-t border-[#E5E5E5]">
+        {/* <p className="text-[12px] uppercase font-300 cursor-pointer">
+          Home
         </p>
         <p className="text-[12px] uppercase font-300 cursor-pointer">
           categories
@@ -48,7 +48,7 @@ const Header: React.FC = () => {
         <p className="text-[12px] uppercase font-300 cursor-pointer">mega</p>
         <p className="text-[12px] uppercase font-300 cursor-pointer">
           store pickup
-        </p>
+        </p> */}
       </div>
     </div>
   );
