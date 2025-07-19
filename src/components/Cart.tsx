@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/contexts/useCart";
 import CartItem from "./CartItem";
@@ -10,6 +10,20 @@ interface CartProps {
 
 const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
   const { state } = useCart();
+
+  // Блокировка скролла страницы когда корзина открыта
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Очистка при размонтировании компонента
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   return (
     <AnimatePresence>
@@ -61,7 +75,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
             </div>
 
             {/* Содержимое корзины */}
-            <div className="p-[24px] flex flex-col flex-1 overflow-hidden">
+            <div className="p-[24px] pt-[0px] flex flex-col flex-1 overflow-hidden">
               {/* Заголовок */}
               <div className="mb-[24px] flex-shrink-0">
                 <h2 className="text-[24px] font-[600] text-[#000] mb-[8px]">
@@ -73,7 +87,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
               </div>
 
               {/* Список товаров */}
-              <div className="flex-1 overflow-y-auto min-h-0">
+              <div className="flex-1 overflow-y-auto min-h-0 scrollbar-hide">
                 {state.items.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-full text-center">
                     <p className="text-[18px] text-[#666] mb-[16px]">

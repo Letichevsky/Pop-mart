@@ -1,6 +1,7 @@
 import React from "react";
 import { useCart } from "@/contexts/useCart";
 import type { CartItem as CartItemType } from "@/contexts/cartTypes";
+import products from "@/data/products.json";
 
 interface CartItemProps {
   item: CartItemType;
@@ -9,8 +10,19 @@ interface CartItemProps {
 const CartItem: React.FC<CartItemProps> = ({ item }) => {
   const { updateQuantity, removeItem } = useCart();
 
+  // Находим продукт для определения ограничений
+  const product = products.products.find((p) => p.id === item.id);
+
+  // Определяем максимальное количество
+  const getMaxQuantity = () => {
+    if (!product?.sizeImages) return Infinity;
+    return item.size === "small" ? 12 : 2;
+  };
+
+  const maxQuantity = getMaxQuantity();
+
   const handleQuantityChange = (newQuantity: number) => {
-    if (newQuantity > 0) {
+    if (newQuantity > 0 && newQuantity <= maxQuantity) {
       updateQuantity(item.id, newQuantity, item.size);
     }
   };
@@ -56,23 +68,37 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
           </div>
 
           {/* Управление количеством */}
-          <div className="flex items-center gap-[8px]">
-            <button
-              onClick={() => handleQuantityChange(item.quantity - 1)}
-              disabled={item.quantity <= 1}
-              className="w-[32px] h-[32px] flex items-center justify-center bg-white hover:bg-gray-50 disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400 transition-colors select-none rounded-none border-[1px] border-[#000] text-[16px] leading-none"
-            >
-              -
-            </button>
-            <span className="w-[40px] h-[32px] flex items-center justify-center bg-white text-center font-[600] text-[16px] border-[1px] border-[#000]">
-              {item.quantity}
-            </span>
-            <button
-              onClick={() => handleQuantityChange(item.quantity + 1)}
-              className="w-[32px] h-[32px] flex items-center justify-center bg-white hover:bg-gray-50 transition-colors select-none rounded-none border-[1px] border-[#000] text-[16px] leading-none"
-            >
-              +
-            </button>
+          <div className="flex flex-col gap-[8px]">
+            {/* Информация о максимальном количестве */}
+            {product?.sizeImages && (
+              <div className="flex items-center gap-[8px]">
+                <span className="text-[12px] font-[600] text-[#777]">
+                  Max {maxQuantity} (
+                  {item.size === "small" ? "Single Box" : "set"}) per person
+                </span>
+              </div>
+            )}
+
+            {/* Кнопки управления количеством */}
+            <div className="flex items-center gap-[8px]">
+              <button
+                onClick={() => handleQuantityChange(item.quantity - 1)}
+                disabled={item.quantity <= 1}
+                className="w-[32px] h-[32px] flex items-center justify-center bg-white hover:bg-gray-50 disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400 transition-colors select-none rounded-none border-[1px] border-[#000] text-[16px] leading-none"
+              >
+                -
+              </button>
+              <span className="w-[40px] h-[32px] flex items-center justify-center bg-white text-center font-[600] text-[16px] border-[1px] border-[#000]">
+                {item.quantity}
+              </span>
+              <button
+                onClick={() => handleQuantityChange(item.quantity + 1)}
+                disabled={item.quantity >= maxQuantity}
+                className="w-[32px] h-[32px] flex items-center justify-center bg-white hover:bg-gray-50 disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400 transition-colors select-none rounded-none border-[1px] border-[#000] text-[16px] leading-none"
+              >
+                +
+              </button>
+            </div>
           </div>
         </div>
       </div>
