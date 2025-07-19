@@ -1,7 +1,10 @@
+import StatusMark from "@/components/StatusMark";
 import { useNavigate } from "react-router-dom";
 
 interface ProductProps {
   id: number;
+  isHot: boolean;
+  isNew: boolean;
   image: string;
   name: string;
   description: string;
@@ -10,6 +13,8 @@ interface ProductProps {
 
 const Product = ({
   id,
+  isHot,
+  isNew,
   image,
   name,
   description,
@@ -23,9 +28,11 @@ const Product = ({
 
   return (
     <div
-      className="flex-1 flex flex-col items-center justify-center gap-[16px] cursor-pointer"
+      className="flex-1 flex flex-col items-center justify-center gap-[16px] cursor-pointer relative"
       onClick={handleClick}
     >
+      {isHot && <StatusMark status="hot" isAbsolute={true} />}
+      {isNew && <StatusMark status="new" isAbsolute={true} />}
       <div className="bg-[#F6F6F6] w-full h-full py-[24px] overflow-hidden">
         <img
           src={`/products${image}`}

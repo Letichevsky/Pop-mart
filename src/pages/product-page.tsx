@@ -3,23 +3,18 @@ import { useEffect, useState } from "react";
 import products from "@/data/products.json";
 import PageSpacer from "@/components/PageSpacer";
 import { cn } from "@/utils/cn";
+import StatusMark from "@/components/StatusMark";
 
 interface Product {
   id: number;
+  isHot: boolean;
+  isNew: boolean;
   category: string;
   name: string;
   description: string;
   smallPrice: number;
   bigPrice?: number;
-  shippingInformation: string;
-  launchTime: string;
-  designer: string;
-  releaseDate: string;
-  size: string;
-  material: string;
-  stuffing: string;
-  notSuitableFor: string;
-  note: string;
+  details: string[][];
   productImages: string[];
   pageImages: string[];
   sizeImages?: string[];
@@ -121,6 +116,8 @@ const ProductPage = () => {
 
           {/* Информация о продукте */}
           <div className="flex flex-col gap-[24px]">
+            {product.isHot && <StatusMark status="hot" />}
+            {product.isNew && <StatusMark status="new" />}
             <div>
               <h1 className="text-[32px] font-semibold mb-[8px]">
                 {product.name}
@@ -153,42 +150,68 @@ const ProductPage = () => {
                       "flex gap-[8px] items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
                       size === "small" && "outline outline-[#000]"
                     )}
-                    onClick={() => setSize("small")}
+                    onClick={() => {
+                      setSize("small");
+                      if (quantity > 12) {
+                        setQuantity(12);
+                      }
+                    }}
                   >
                     <img
                       src={`/products${product.sizeImages[0]}`}
                       alt="single box"
                       className="w-[40px] h-[40px] object-cover"
                     />
-                    <p className="text-[14px]">Single box</p>
+                    <p
+                      className={cn(
+                        "text-[14px]",
+                        size === "small" ? "text-[#000]" : "text-[#aaa]"
+                      )}
+                    >
+                      Single box
+                    </p>
                   </div>
                   <div
                     className={cn(
                       "flex gap-[8px] items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
                       size === "big" && "outline outline-[#000]"
                     )}
-                    onClick={() => setSize("big")}
+                    onClick={() => {
+                      setSize("big");
+                      if (quantity > 2) {
+                        setQuantity(2);
+                      }
+                    }}
                   >
                     <img
                       src={`/products${product.sizeImages[1]}`}
                       alt="single box"
                       className="w-[40px] h-[40px] object-cover"
                     />
-                    <p className="text-[14px]">Whole set</p>
+                    <p
+                      className={cn(
+                        "text-[14px]",
+                        size === "big" ? " text-[#000]" : " text-[#aaa]"
+                      )}
+                    >
+                      Whole set
+                    </p>
                   </div>
                 </div>
               </div>
             )}
 
-            <div>
-              <p className="text-[16px] text-gray-700 leading-relaxed">
-                {product.description}
-              </p>
-            </div>
-
             {/* Выбор количества */}
-            <div className="flex items-center gap-[16px]">
-              <span className="text-[16px] font-[600]">Quantity:</span>
+            <div className="flex flex-col items-start gap-[16px]">
+              <div className="flex justify-center items-center gap-[8px]">
+                <span className="text-[16px] font-[600]">Quantity:</span>
+                {product.sizeImages && (
+                  <span className="text-[16px] font-[600] text-[#777]">
+                    Max {size === "small" ? "12 (Single Box)" : "2 (set)"} per
+                    person
+                  </span>
+                )}
+              </div>
               <div className="flex items-center border-gray-300">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -201,20 +224,53 @@ const ProductPage = () => {
                   {quantity}
                 </span>
                 <button
-                  onClick={() => setQuantity(quantity + 1)}
-                  className="w-[40px] h-[40px] flex items-center justify-center bg-white hover:bg-gray-50 transition-colors select-none rounded-none border-[1px] border-[#000] text-[20px] leading-none"
+                  onClick={() => {
+                    const maxQuantity = product.sizeImages
+                      ? size === "small"
+                        ? 12
+                        : 2
+                      : Infinity;
+                    setQuantity(Math.min(quantity + 1, maxQuantity));
+                  }}
+                  disabled={
+                    product.sizeImages
+                      ? size === "small"
+                        ? quantity >= 12
+                        : quantity >= 2
+                      : false
+                  }
+                  className="w-[40px] h-[40px] flex items-center justify-center bg-white hover:bg-gray-50 disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400 transition-colors select-none rounded-none border-[1px] border-[#000] text-[20px] leading-none"
                 >
                   +
                 </button>
               </div>
             </div>
-            <div className="flex gap-[16px] pt-[16px]">
+            {/* BUTTONS */}
+            <div className="flex gap-[16px]">
               <button className="bg-[#000] text-[#fff] px-[32px] py-[16px] hover:bg-[#000]/80 transition-colors uppercase font-[700] border-none cursor-pointer">
                 Add to cart
               </button>
               <button className=" text-[#fff] bg-[#d20001] px-[32px] py-[16px] hover:bg-[#d20001]/80 transition-colors uppercase font-[700] border-none cursor-pointer">
                 Buy now
               </button>
+            </div>
+            {/* DETAILS */}
+            <div className="flex flex-col gap-[16px]">
+              <p className="text-[20px] font-[600] text-[#000] uppercase">
+                Details
+              </p>
+              <div className="flex flex-col gap-[8px]">
+                {product.details.map((detail, index) => (
+                  <div key={index} className="flex gap-[8px]">
+                    <p className="text-[16px] font-[600] text-[#000]">
+                      {detail[0]}
+                    </p>
+                    <p className="text-[16px] font-[400] text-[#000]">
+                      {detail[1]}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
