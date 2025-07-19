@@ -39,4 +39,5 @@ export interface CartContextType {
     size?: "small" | "big"
   ) => void;
   clearCart: () => void;
+  openCart: () => void;
 }

@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 import type {
   CartItem,
   CartState,
@@ -6,6 +6,7 @@ import type {
   CartContextType,
 } from "./cartTypes";
 import { CartContext } from "./cartContext";
+import Cart from "@/components/Cart";
 
 // Начальное состояние
 const initialState: CartState = {
@@ -146,6 +147,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [state, dispatch] = useReducer(cartReducer, initializeState());
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Сохранение корзины в localStorage при изменении
   useEffect(() => {
@@ -180,13 +182,27 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     dispatch({ type: "CLEAR_CART" });
   };
 
+  const openCart = () => {
+    setIsCartOpen(true);
+  };
+
+  const closeCart = () => {
+    setIsCartOpen(false);
+  };
+
   const value: CartContextType = {
     state,
     addItem,
     removeItem,
     updateQuantity,
     clearCart,
+    openCart,
   };
 
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+  return (
+    <CartContext.Provider value={value}>
+      {children}
+      <Cart isOpen={isCartOpen} onClose={closeCart} />
+    </CartContext.Provider>
+  );
 };

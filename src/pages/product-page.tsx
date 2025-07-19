@@ -28,7 +28,7 @@ type ImageSource = "gallery" | "size";
 const ProductPage = () => {
   const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
-  const { addItem } = useCart();
+  const { addItem, openCart } = useCart();
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -299,7 +299,28 @@ const ProductPage = () => {
               >
                 Add to cart
               </button>
-              <button className=" text-[#fff] bg-[#d20001] px-[32px] py-[16px] hover:bg-[#d20001]/80 transition-colors uppercase font-[700] border-none cursor-pointer">
+              <button
+                onClick={() => {
+                  if (product) {
+                    addItem({
+                      id: product.id,
+                      name: product.name,
+                      description: product.description,
+                      price:
+                        size === "small"
+                          ? product.smallPrice
+                          : product.bigPrice || product.smallPrice,
+                      image: product.productImages[0],
+                      quantity,
+                      size: product.sizeImages ? size : undefined,
+                      category: product.category,
+                    });
+                    // Открываем корзину после добавления товара
+                    openCart();
+                  }
+                }}
+                className=" text-[#fff] bg-[#d20001] px-[32px] py-[16px] hover:bg-[#d20001]/80 transition-colors uppercase font-[700] border-none cursor-pointer"
+              >
                 Buy now
               </button>
             </div>
