@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CartContext } from "./cartContext";
+import { CartContext } from "./cartContextTypes";
 
 // Хук для использования контекста корзины
 export const useCart = () => {

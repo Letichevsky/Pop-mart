@@ -86,6 +86,28 @@ const ProductPage = () => {
     }
   };
 
+  // Функция для добавления товара в корзину
+  const handleAddToCart = () => {
+    if (!product) return;
+
+    const itemToAdd = {
+      id: product.id,
+      name: product.name,
+      description: product.description,
+      price:
+        size === "small"
+          ? product.smallPrice
+          : product.bigPrice || product.smallPrice,
+      image: product.productImages[0],
+      quantity,
+      size: product.sizeImages ? size : undefined,
+      category: product.category,
+    };
+
+    // Добавляем товар в корзину (проверка ограничений происходит внутри addItem)
+    addItem(itemToAdd);
+  };
+
   if (!product) {
     return (
       <div className="w-full min-h-screen flex items-center justify-center">
@@ -278,46 +300,16 @@ const ProductPage = () => {
             {/* BUTTONS */}
             <div className="flex gap-[16px]">
               <button
-                onClick={() => {
-                  if (product) {
-                    addItem({
-                      id: product.id,
-                      name: product.name,
-                      description: product.description,
-                      price:
-                        size === "small"
-                          ? product.smallPrice
-                          : product.bigPrice || product.smallPrice,
-                      image: product.productImages[0],
-                      quantity,
-                      size: product.sizeImages ? size : undefined,
-                      category: product.category,
-                    });
-                  }
-                }}
+                onClick={handleAddToCart}
                 className="bg-[#000] text-[#fff] px-[32px] py-[16px] hover:bg-[#000]/80 transition-colors uppercase font-[700] border-none cursor-pointer"
               >
                 Add to cart
               </button>
               <button
                 onClick={() => {
-                  if (product) {
-                    addItem({
-                      id: product.id,
-                      name: product.name,
-                      description: product.description,
-                      price:
-                        size === "small"
-                          ? product.smallPrice
-                          : product.bigPrice || product.smallPrice,
-                      image: product.productImages[0],
-                      quantity,
-                      size: product.sizeImages ? size : undefined,
-                      category: product.category,
-                    });
-                    // Открываем корзину после добавления товара
-                    openCart();
-                  }
+                  handleAddToCart();
+                  // Открываем корзину после добавления товара
+                  openCart();
                 }}
                 className=" text-[#fff] bg-[#d20001] px-[32px] py-[16px] hover:bg-[#d20001]/80 transition-colors uppercase font-[700] border-none cursor-pointer"
               >

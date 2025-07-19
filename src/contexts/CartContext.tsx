@@ -5,8 +5,9 @@ import type {
   CartAction,
   CartContextType,
 } from "./cartTypes";
-import { CartContext } from "./cartContext";
+import { CartContext } from "./cartContextTypes";
 import Cart from "@/components/Cart";
+import { toast } from "@/hooks/use-toast";
 
 // Начальное состояние
 const initialState: CartState = {
@@ -163,7 +164,57 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   }, [state]);
 
   const addItem = (item: Omit<CartItem, "quantity"> & { quantity: number }) => {
+    // Проверяем ограничения перед добавлением
+    const canAdd = checkQuantityLimits(item);
+
+    if (!canAdd.success) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: canAdd.message || "Quantity limit exceeded",
+      });
+      return;
+    }
+
     dispatch({ type: "ADD_ITEM", payload: item as CartItem });
+  };
+
+  // Функция для проверки ограничений количества
+  const checkQuantityLimits = (
+    newItem: Omit<CartItem, "quantity"> & { quantity: number }
+  ) => {
+    const itemKey = getItemKey(newItem.id, newItem.size);
+    const existingItem = state.items.find(
+      (item) => getItemKey(item.id, item.size) === itemKey
+    );
+
+    // Определяем максимальное количество для товара
+    const maxQuantity = newItem.size === "big" ? 2 : 12;
+
+    // Если товар уже есть в корзине, проверяем общее количество
+    if (existingItem) {
+      const totalQuantity = existingItem.quantity + newItem.quantity;
+      if (totalQuantity > maxQuantity) {
+        return {
+          success: false,
+          message: `Maximum quantity for ${
+            newItem.size === "big" ? "set" : "single box"
+          } is ${maxQuantity} items`,
+        };
+      }
+    } else {
+      // Если товара нет в корзине, проверяем только новое количество
+      if (newItem.quantity > maxQuantity) {
+        return {
+          success: false,
+          message: `Maximum quantity for ${
+            newItem.size === "big" ? "set" : "single box"
+          } is ${maxQuantity} items`,
+        };
+      }
+    }
+
+    return { success: true };
   };
 
   const removeItem = (id: number, size?: "small" | "big") => {
@@ -175,6 +226,20 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     quantity: number,
     size?: "small" | "big"
   ) => {
+    // Проверяем ограничения при обновлении количества
+    const maxQuantity = size === "big" ? 2 : 12;
+
+    if (quantity > maxQuantity) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: `Maximum quantity for ${
+          size === "big" ? "set" : "single box"
+        } is ${maxQuantity} items`,
+      });
+      return;
+    }
+
     dispatch({ type: "UPDATE_QUANTITY", payload: { id, quantity, size } });
   };
 
