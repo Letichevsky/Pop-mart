@@ -68,6 +68,7 @@ const ProductPage = () => {
   const handleSizeSelect = (newSize: "small" | "big") => {
     setSize(newSize);
     setImageSource("size");
+    // Сбрасываем количество при смене размера, если превышает лимит
     if (quantity > (newSize === "small" ? 12 : 2)) {
       setQuantity(newSize === "small" ? 12 : 2);
     }
@@ -158,7 +159,10 @@ const ProductPage = () => {
 
             <div>
               <p className="text-[24px] font-[600] text-[#d20001]">
-                ${product.smallPrice}
+                $
+                {size === "small"
+                  ? product.smallPrice
+                  : product.bigPrice || product.smallPrice}
               </p>
               <p className="text-[12px] text-[#000]">
                 Estimated Shipping Date:{" "}
