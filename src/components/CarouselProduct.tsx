@@ -53,7 +53,7 @@ const CarouselProduct = ({
         </h3>
         <p className="text-[12px] text-gray-600 line-clamp-2">{name}</p>
         <p className="text-[16px] font-semibold text-black mt-auto">
-          AU${smallPrice}
+          AU$ {smallPrice.toFixed(2)}
         </p>
       </div>
     </div>

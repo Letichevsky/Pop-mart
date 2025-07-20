@@ -117,7 +117,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
                     <div className="flex justify-between items-center">
                       <span className="text-[#000] font-[600]">Subtotal</span>
                       <span className="text-[#000] font-[700]">
-                        AU${state.total.toFixed(2)}{" "}
+                        AU$ {state.total.toFixed(2)}{" "}
                         <span className="text-[#000] text-[10px]">AUD</span>
                       </span>
                     </div>
@@ -139,7 +139,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
                         Total ({state.itemCount})
                       </span>
                       <span className="text-[#000] font-[700] text-[20px]">
-                        AU${state.total.toFixed(2)}{" "}
+                        AU$ {state.total.toFixed(2)}{" "}
                         <span className="text-[#000] text-[10px] font-[600]">
                           AUD
                         </span>

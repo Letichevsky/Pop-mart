@@ -8,7 +8,7 @@
       "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 1 description",
       "smallPrice": 27.99,
-      "bigPrice": 167.94,
+      "bigPrice": 167.99,
       "details": [
         ["Brand:", "POP MART"],
         ["Size:", "Height about 15cm"],
@@ -50,16 +50,16 @@
       "isHot": false,
       "isNew": true,
       "category": "THE MONSTERS",
-      "name": "THE MONSTERS - Exciting Macaron Vinyl Face Blind Box",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 2 description",
       "smallPrice": 27.99,
-      "bigPrice": 167.94,
+      "bigPrice": 177.99,
       "details": [
         ["Brand:", "POP MART"],
-        ["Release Date:", "April 25, 2025"],
-        ["Size:", "Height (Excluding Hanging Loop): 17cm / 6.69 inches"],
-        ["Material:", "Shell: PVC / Polyester"],
-        ["Stuffing:", "Polyester / Iron Wire"]
+        ["Size:", "Height about 15cm"],
+        ["Material:", "Fabric: PVC/polyester"],
+        ["Stuffing:", "Polyester/iron wire"],
+        ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
         "/product2/gallary/image01.jpg",
@@ -81,19 +81,19 @@
     },
     {
       "id": 3,
-      "isHot": true,
+      "isHot": false,
       "isNew": false,
       "category": "THE MONSTERS",
-      "name": "THE MONSTERS - Have a Seat Vinyl Plush Blind Box",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 3 description",
       "smallPrice": 27.99,
-      "bigPrice": 167.94,
+      "bigPrice": 277.99,
       "details": [
         ["Brand:", "POP MART"],
-        ["Release Date:", "July 12, 2024"],
-        ["Size:", "8*7*15CM/3.15*2.76*5.91 INCHES"],
-        ["Material:", "SHELL: 60% PVC. 40% POLYESTER"],
-        ["Stuffing:", "70% POLYESTER, 20% ABS, 5% IRON WIRE, 5% NYYLON"]
+        ["Size:", "Height about 15cm"],
+        ["Material:", "Fabric: PVC/polyester"],
+        ["Stuffing:", "Polyester/iron wire"],
+        ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
         "/product3/gallary/image01.jpg",
@@ -120,17 +120,17 @@
     {
       "id": 4,
       "isHot": false,
-      "isNew": true,
+      "isNew": false,
       "category": "THE MONSTERS",
-      "name": "THE MONSTERS Let's Checkmate Series-Vinyl Plush Hanging Card",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 3 description",
-      "smallPrice": 46.99,
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
-        ["Release Date:", "February 7, 2025"],
-        ["Size:", "17cm/6.69 inches"],
-        ["Material:", "Shell-59% PVC, 41% Polyester"],
-        ["Stuffing:", "100% Polyester"]
+        ["Size:", "Height about 15cm"],
+        ["Material:", "Fabric: PVC/polyester"],
+        ["Stuffing:", "Polyester/iron wire"],
+        ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
         "/product4/gallary/image01.jpg",
@@ -155,15 +155,15 @@
       "isHot": true,
       "isNew": false,
       "category": "THE MONSTERS",
-      "name": "THE MONSTERS FALL IN WILD SERIES-Vinyl Plush Doll Pendant",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 3 description",
-      "smallPrice": 39.99,
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
-        ["Release Date:", "April 12, 2024"],
-        ["Size:", "3.14*2.75*6.69 inches"],
-        ["Material:", "FABRIC- 40% PVC/30% COTTON /30% POLYESTER FIBIER"],
-        ["Stuffing:", "95% POLYESTER FIBER/5% IRON WIRE"]
+        ["Size:", "Height about 15cm"],
+        ["Material:", "Fabric: PVC/polyester"],
+        ["Stuffing:", "Polyester/iron wire"],
+        ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
         "/product5/gallary/image01.jpg",
@@ -179,18 +179,17 @@
     {
       "id": 6,
       "isHot": false,
-      "isNew": true,
+      "isNew": false,
       "category": "THE MONSTERS",
-      "name": "THE MONSTERS Wacky Mart Series Figures",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 3 description",
-      "smallPrice": 19.99,
-      "bigPrice": 167.94,
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
-        ["Release Date:", "April 12, 2024"],
-        ["Size:", "3.14*2.75*6.69 inches"],
-        ["Material:", "FABRIC- 40% PVC/30% COTTON /30% POLYESTER FIBIER"],
-        ["Stuffing:", "95% POLYESTER FIBER/5% IRON WIRE"]
+        ["Size:", "Height about 15cm"],
+        ["Material:", "Fabric: PVC/polyester"],
+        ["Stuffing:", "Polyester/iron wire"],
+        ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
         "/product6/gallary/image01.jpg",
@@ -228,17 +227,17 @@
     {
       "id": 7,
       "isHot": false,
-      "isNew": true,
+      "isNew": false,
       "category": "THE MONSTERS",
-      "name": "THE MONSTERS Almost Hidden Series Figures",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 3 description",
-      "smallPrice": 19.99,
-      "bigPrice": 238.88,
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
-        ["Release Date:", "April 12, 2024"],
-        ["Height:", "2.75-4.29inches"],
-        ["Material:", "ABS/PVC"]
+        ["Size:", "Height about 15cm"],
+        ["Material:", "Fabric: PVC/polyester"],
+        ["Stuffing:", "Polyester/iron wire"],
+        ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
         "/product7/gallary/image01.jpg",
@@ -271,24 +270,18 @@
     },
     {
       "id": 8,
-      "isHot": true,
+      "isHot": false,
       "isNew": false,
       "category": "THE MONSTERS",
-      "name": "THE MONSTERS COCA-COLA Series Figures",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 3 description",
-      "smallPrice": 19.99,
-      "bigPrice": 199.9,
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
-        ["Release Date:", "November 22"],
-        ["Size:", "7.7cm-10.7cm/3.03-4.21inches"],
-        ["Material:", "PVC/ABS"],
-        ["Whole set:", "Contains 10 non-repeating blind boxes"],
-        [
-          "Secret:",
-          "Chances of drawing a \"secret\" figurine vary from set to set"
-        ],
-        ["Age:", "Not suitable for persons under 15"]
+        ["Size:", "Height about 15cm"],
+        ["Material:", "Fabric: PVC/polyester"],
+        ["Stuffing:", "Polyester/iron wire"],
+        ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
         "/product8/gallary/image01.jpg",
@@ -322,20 +315,18 @@
     },
     {
       "id": 9,
-      "isHot": true,
+      "isHot": false,
       "isNew": false,
       "category": "THE MONSTERS",
-      "name": "MEGA LABUBU 400% TONY TONY CHOPPER",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 3 description",
-      "smallPrice": 340.0,
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
-        ["Size:", "400mm"],
-        ["Material:", "ABS/PVC/PC"],
-        [
-          "Note:",
-          "MEGA COLLECTION products are excluded from promotions and events"
-        ]
+        ["Size:", "Height about 15cm"],
+        ["Material:", "Fabric: PVC/polyester"],
+        ["Stuffing:", "Polyester/iron wire"],
+        ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
         "/product9/gallary/image01.jpg",
@@ -358,16 +349,17 @@
     {
       "id": 10,
       "isHot": false,
-      "isNew": true,
+      "isNew": false,
       "category": "THE MONSTERS",
-      "name": "THE MONSTERS - ANGEL IN CLOUDS Vinyl Face Doll",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 3 description",
-      "smallPrice": 340.0,
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
-        ["Size:", "33*25*58cm"],
-        ["Material:", "SHELL: 36% Polyester, 35% PVC, 29% ABS"],
-        ["Stuffing:", "70% Polyester, 27% POM, 2% Rubber, 1% Sponge"]
+        ["Size:", "Height about 15cm"],
+        ["Material:", "Fabric: PVC/polyester"],
+        ["Stuffing:", "Polyester/iron wire"],
+        ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
         "/product10/gallary/image01.jpg",
@@ -390,17 +382,15 @@
       "isHot": false,
       "isNew": false,
       "category": "THE MONSTERS",
-      "name": "THE MONSTERS - FLIP WITH ME Vinyl Plush Doll",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 3 description",
-      "smallPrice": 138.0,
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
-        ["Size:", "20*15*40cm"],
-        [
-          "Material:",
-          "Shell: 40% Cotton, 17%PVC, 16% Polyester, 15%ABS, 12%TPR"
-        ],
-        ["Stuffing:", "90% Polyester, 10%PE Particles"]
+        ["Size:", "Height about 15cm"],
+        ["Material:", "Fabric: PVC/polyester"],
+        ["Stuffing:", "Polyester/iron wire"],
+        ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
         "/product11/gallary/image01.jpg",
@@ -422,18 +412,18 @@
     },
     {
       "id": 12,
-      "isHot": true,
+      "isHot": false,
       "isNew": false,
       "category": "THE MONSTERS",
-      "name": "THE MONSTERS Let's Checkmate Series-Vinyl Plush Doll",
+      "name": "THE MONSTERS Big into Energy Series-Vinyl Plush Pendant Blind Box",
       "description": "Product 3 description",
-      "smallPrice": 138.0,
+      "smallPrice": 17.99,
       "details": [
         ["Brand:", "POP MART"],
-        ["Size:", "Standing Posture: 37cm, Sitting Posture: 33cm"],
-        ["Material:", "Shell: Polyester/PVC/ABS"],
-        ["Stuffing:", "Polyester/PP Particles"],
-        ["Ring Box:", "PS/Polyester/Hardware"]
+        ["Size:", "Height about 15cm"],
+        ["Material:", "Fabric: PVC/polyester"],
+        ["Stuffing:", "Polyester/iron wire"],
+        ["Whole set:", "A whole set contains 6 blind boxes"]
       ],
       "productImages": [
         "/product12/gallary/image01.jpg",

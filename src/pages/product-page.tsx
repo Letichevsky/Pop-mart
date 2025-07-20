@@ -185,11 +185,12 @@ const ProductPage = () => {
             </div>
 
             <div>
-              <p className="text-[24px] font-[600] text-[#d20001]">
-                $
-                {size === "small"
-                  ? product.smallPrice
-                  : product.bigPrice || product.smallPrice}
+              <p className="text-[24px] font-[600] text-[#d20001] text-nowrap">
+                {`AU$ ` +
+                  (size === "small"
+                    ? product.smallPrice.toFixed(2)
+                    : product.bigPrice?.toFixed(2) ||
+                      product.smallPrice.toFixed(2))}
               </p>
               <p className="text-[12px] text-[#000]">
                 Estimated Shipping Date:{" "}
