@@ -21,7 +21,7 @@ const ProductsCarousel = ({ currentProductId }: ProductsCarouselProps) => {
         </h2>
       </div>
 
-      <div className="relative bg-gray-100 p-[24px]">
+      <div className="relative p-[24px]">
         <Swiper
           modules={[Navigation, Pagination]}
           spaceBetween={24}

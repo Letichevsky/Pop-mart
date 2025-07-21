@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* Swiper CSS */
 @import 'swiper/css';
@@ -9,193 +7,193 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
 }
 
 h1 {
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
 }
 
 body {
-  background-color: #fff;
-}
+    background-color: #fff;
+} */
 
 /* Скрытие скроллбара */
 .scrollbar-hide {
-  -ms-overflow-style: none;
-  /* Internet Explorer 10+ */
-  scrollbar-width: none;
-  /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;
-  /* Safari and Chrome */
+    display: none;
+    /* Safari and Chrome */
 }
 
 /* Swiper стили */
 .swiper {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .products-carousel,
 .test-carousel {
-  width: 100%;
-  height: 400px;
+    width: 100%;
+    height: 400px;
 }
 
 .test-carousel {
-  height: 200px;
+    height: 200px;
 }
 
 .swiper-wrapper {
-  display: flex;
-  align-items: stretch;
+    display: flex;
+    align-items: stretch;
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  height: 400px;
-  width: 280px;
-  flex-shrink: 0;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 400px;
+    width: 280px;
+    flex-shrink: 0;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  background: #f3f4f6;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #000;
-  transition: background-color 0.3s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background: #f3f4f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    transition: background-color 0.3s;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background: #e5e7eb;
+    background: #e5e7eb;
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  font-size: 16px;
-  font-weight: bold;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .swiper-button-prev {
-  left: -50px;
+    left: -50px;
 }
 
 .swiper-button-next {
-  right: -50px;
+    right: -50px;
 }
 
 .swiper-pagination {
-  position: absolute;
-  text-align: right;
-  transition: 300ms opacity;
-  transform: translate3d(0, 0, 0);
-  z-index: 10;
-  right: 0;
+    position: absolute;
+    text-align: right;
+    transition: 300ms opacity;
+    transform: translate3d(0, 0, 0);
+    z-index: 10;
+    right: 0;
 }
 
 .swiper-pagination-fraction {
-  color: #000;
-  font-size: 14px;
-  font-weight: 500;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 /* Line clamp utility */
 .line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* Hero Carousel Styles */
 .hero-swiper-button-next,
 .hero-swiper-button-prev {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  cursor: pointer;
-  width: 48px;
-  height: 48px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all 0.3s ease;
 }
 
 .hero-swiper-button-next:hover,
 .hero-swiper-button-prev:hover {
-  background: rgba(0, 0, 0, 1);
+    background: rgba(0, 0, 0, 1);
 }
 
 .hero-swiper-button-next::after,
 .hero-swiper-button-prev::after {
-  display: none;
+    display: none;
 }
 
 .hero-swiper-button-prev {
-  left: 16px;
+    left: 16px;
 }
 
 .hero-swiper-button-next {
-  right: 16px;
+    right: 16px;
 }
 
 /* Hero carousel pagination styles */
 .hero-carousel .swiper-pagination {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  display: flex;
-  gap: 8px;
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 8px;
 }
 
 .hero-carousel .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .hero-carousel .swiper-pagination-bullet:hover,
 .hero-carousel .swiper-pagination-bullet-active {
-  background: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 1);
 }
