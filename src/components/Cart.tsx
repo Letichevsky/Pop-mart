@@ -50,7 +50,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
               stiffness: 200,
               duration: 0.3,
             }}
-            className="fixed top-[0] right-[0] h-[100vh] w-[50%] bg-[#fff] z-[70] flex flex-col"
+            className="fixed top-[0] right-[0] h-[100vh] w-[100%] md:w-[75%] lg:w-[50%] bg-[#fff] z-[70] flex flex-col"
           >
             {/* Заголовок с крестиком */}
             <div className="flex items-center justify-end p-[24px] flex-shrink-0">

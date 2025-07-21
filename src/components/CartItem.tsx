@@ -33,7 +33,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
 
   return (
     <div className="flex items-start justify-between gap-[16px] p-[16px] border-b border-[#E5E5E5] select-none">
-      <div className="flex items-start gap-[16px]">
+      <div className="flex flex-col md:flex-row items-start gap-[16px]">
         {/* Изображение товара */}
         <div className="w-[120px] h-[120px] bg-[#F6F6F6] overflow-hidden flex-shrink-0">
           <img
@@ -104,7 +104,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
       </div>
 
       {/* Общая стоимость товара */}
-      <div className="h-[100%] flex flex-col items-end gap-[4px] min-w-[80px]">
+      <div className="h-[100%] flex flex-col items-end gap-[4px] min-w-[80px] ml-4">
         <p className="text-[18px] font-[600] text-[#000] text-nowrap">
           AU$ {(item.price * item.quantity).toFixed(2)}
         </p>

@@ -135,11 +135,11 @@ const ProductPage = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-2 gap-[64px]">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-start gap-[24px]">
           {/* Галерея изображений */}
-          <div className="flex gap-[16px]">
+          <div className="flex gap-[16px] bg-red-300">
             {/* Контейнер для миниатюр с прокруткой */}
-            <div className="h-[480px] overflow-y-auto pr-[8px] scrollbar-hide">
+            <div className="h-[250px] md:h-[480px] overflow-y-auto pr-[8px] scrollbar-hide">
               <div className="flex flex-col gap-[8px]">
                 {product.productImages.map((image, index) => (
                   <button
@@ -162,7 +162,7 @@ const ProductPage = () => {
             </div>
 
             {/* Главное изображение */}
-            <div className="bg-[#F6F6F6] w-[480px] h-[480px] overflow-hidden">
+            <div className="bg-[#F6F6F6] w-[250px] sm:w-[300px] md:w-[480px] h-[250px] sm:h-[300px] md:h-[480px] overflow-hidden">
               <img
                 src={`/products${getCurrentImage()}`}
                 alt={product.name}
@@ -172,7 +172,7 @@ const ProductPage = () => {
           </div>
 
           {/* Информация о продукте */}
-          <div className="flex flex-col gap-[24px]">
+          <div className="flex flex-col gap-[24px] w-full max-w-[600px] lg:max-w-[400px]">
             {product.isHot && <StatusMark status="hot" />}
             {product.isNew && <StatusMark status="new" />}
             <div>
@@ -208,7 +208,7 @@ const ProductPage = () => {
                 <div className="flex gap-[16px]">
                   <div
                     className={cn(
-                      "flex gap-[8px] items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
+                      "w-full flex gap-[8px] justify-center items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
                       size === "small" && "outline outline-[#000]"
                     )}
                     onClick={() => handleSizeSelect("small")}
@@ -220,7 +220,7 @@ const ProductPage = () => {
                     />
                     <p
                       className={cn(
-                        "text-[14px]",
+                        "text-[14px] text-nowrap",
                         size === "small" ? "text-[#000]" : "text-[#aaa]"
                       )}
                     >
@@ -229,7 +229,7 @@ const ProductPage = () => {
                   </div>
                   <div
                     className={cn(
-                      "flex gap-[8px] items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
+                      "w-full flex gap-[8px] justify-center items-center bg-[#f6f6f6] h-[50px] text-[#000] px-[32px] py-[16px] transition-colors cursor-pointer",
                       size === "big" && "outline outline-[#000]"
                     )}
                     onClick={() => handleSizeSelect("big")}
@@ -241,7 +241,7 @@ const ProductPage = () => {
                     />
                     <p
                       className={cn(
-                        "text-[14px]",
+                        "text-[14px] text-nowrap",
                         size === "big" ? " text-[#000]" : " text-[#aaa]"
                       )}
                     >
@@ -300,7 +300,7 @@ const ProductPage = () => {
             <div className="flex gap-[16px]">
               <button
                 onClick={handleAddToCart}
-                className="bg-[#000] text-[#fff] px-[32px] py-[16px] hover:bg-[#000]/80 transition-colors uppercase font-[700] border-none cursor-pointer"
+                className="w-full text-nowrap bg-[#000] text-[#fff] px-[32px] py-[16px] hover:bg-[#000]/80 transition-colors uppercase font-[700] border-none cursor-pointer"
               >
                 Add to cart
               </button>
@@ -310,7 +310,7 @@ const ProductPage = () => {
                   // Открываем корзину после добавления товара
                   openCart();
                 }}
-                className=" text-[#fff] bg-[#d20001] px-[32px] py-[16px] hover:bg-[#d20001]/80 transition-colors uppercase font-[700] border-none cursor-pointer"
+                className="w-full text-nowrap text-[#fff] bg-[#d20001] px-[32px] py-[16px] hover:bg-[#d20001]/80 transition-colors uppercase font-[700] border-none cursor-pointer"
               >
                 Buy now
               </button>
