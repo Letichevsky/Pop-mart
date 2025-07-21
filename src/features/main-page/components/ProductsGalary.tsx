@@ -1,9 +1,13 @@
+import React from "react";
 import Product from "@/features/main-page/components/Product";
 import products from "@/data/products.json";
 
-const ProductsGalary = () => {
+const ProductsGalary = React.forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <div className="w-full max-w-[1200px] mx-auto grid grid-cols-4 justify-items-center gap-[32px] px-[16px]">
+    <div
+      ref={ref}
+      className="w-full max-w-[1200px] mx-auto grid grid-cols-4 justify-items-center gap-[32px] px-[16px]"
+    >
       {products.products.map((product) => (
         <Product
           key={product.id}
@@ -18,6 +22,6 @@ const ProductsGalary = () => {
       ))}
     </div>
   );
-};
+});
 
 export default ProductsGalary;
