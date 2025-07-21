@@ -137,9 +137,9 @@ const ProductPage = () => {
 
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-start gap-[24px]">
           {/* Галерея изображений */}
-          <div className="flex gap-[16px] bg-red-300">
+          <div className="w-full max-w-[600px] lg:w-auto flex gap-[16px]">
             {/* Контейнер для миниатюр с прокруткой */}
-            <div className="h-[250px] md:h-[480px] overflow-y-auto pr-[8px] scrollbar-hide">
+            <div className="h-[70vw] md:h-[480px] overflow-y-auto pr-[8px] scrollbar-hide">
               <div className="flex flex-col gap-[8px]">
                 {product.productImages.map((image, index) => (
                   <button
@@ -154,7 +154,7 @@ const ProductPage = () => {
                     <img
                       src={`/products${image}`}
                       alt={`${product.name} ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-[76px] h-[76px] object-cover"
                     />
                   </button>
                 ))}
@@ -162,7 +162,7 @@ const ProductPage = () => {
             </div>
 
             {/* Главное изображение */}
-            <div className="bg-[#F6F6F6] w-[250px] sm:w-[300px] md:w-[480px] h-[250px] sm:h-[300px] md:h-[480px] overflow-hidden">
+            <div className="bg-[#F6F6F6] w-[70vw] max-w-[480px] overflow-hidden aspect-square">
               <img
                 src={`/products${getCurrentImage()}`}
                 alt={product.name}
