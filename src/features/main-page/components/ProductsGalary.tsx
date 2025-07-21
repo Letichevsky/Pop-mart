@@ -2,7 +2,7 @@ import React from "react";
 import Product from "@/features/main-page/components/Product";
 import products from "@/data/products.json";
 
-const ProductsGalary = React.forwardRef<HTMLDivElement>((props, ref) => {
+const ProductsGalary = React.forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <div
       ref={ref}
