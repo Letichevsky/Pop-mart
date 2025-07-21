@@ -1,6 +1,6 @@
 const PageTitle = () => {
   return (
-    <div className="w-full flex flex-col items-center gap-[16px] max-w-[500px] mx-auto">
+    <div className="w-full flex flex-col items-center gap-[16px] max-w-[500px] mx-auto px-[16px]">
       <h1 className="uppercase font-extrabold text-[32px] text-center select-none">
         The monsters
       </h1>

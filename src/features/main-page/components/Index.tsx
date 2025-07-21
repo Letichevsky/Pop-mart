@@ -26,13 +26,13 @@ const Index = () => {
           alt="hero"
           className="w-[100%] object-cover"
         />
-        <div className="absolute top-[70%] left-[0] w-[100%] flex flex-col items-center justify-center gap-[24px]">
-          <h1 className="w-[100%] text-[48px] font-[600] text-[#fff] text-center">
+        <div className="absolute top-0 left-0 w-[100%] h-[100%] flex flex-col items-center justify-end md:pb-[5%] pb-[2%] md:gap-[24px] gap-[8px]">
+          <h1 className="w-[100%] text-[16px] sm:text-[24px] md:text-[32px] lg:text-[48px] font-[600] text-[#fff] text-center">
             THE MONSTERS Big into Energy Series
           </h1>
           <a
             href="#galary"
-            className="text-[#fff] uppercase underline font-[600] text-[20px]"
+            className="text-[#fff] uppercase underline font-[600] text-[8px] sm:text-[20px] lg:text-[20px]"
             onClick={handleShopNowClick}
           >
             Shop Now

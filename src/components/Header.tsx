@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   const { state, openCart } = useCart();
 
   return (
-    <div className="w-full fixed top-0 left-0 z-50 bg-white">
+    <div className="w-full fixed top-0 left-0 z-50 bg-white h-[90px]">
       <div className="w-full h-full flex items-center justify-between p-[24px]">
         <div className="hidden md:flex items-center justify-start rounded-full px-[16px] py-[8px] border w-[200px]">
           <input

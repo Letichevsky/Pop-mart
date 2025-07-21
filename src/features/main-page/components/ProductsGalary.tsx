@@ -6,7 +6,7 @@ const ProductsGalary = React.forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <div
       ref={ref}
-      className="w-full max-w-[1200px] mx-auto grid grid-cols-4 justify-items-center gap-[32px] px-[16px]"
+      className="w-full max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-[32px] px-[16px]"
     >
       {products.products.map((product) => (
         <Product
