@@ -14,7 +14,6 @@ interface Product {
   isNew: boolean;
   category: string;
   name: string;
-  description: string;
   smallPrice: number;
   bigPrice?: number;
   details: string[][];

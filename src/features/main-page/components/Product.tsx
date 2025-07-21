@@ -6,8 +6,8 @@ interface ProductProps {
   isHot: boolean;
   isNew: boolean;
   image: string;
+  category: string;
   name: string;
-  description: string;
   smallPrice: number;
 }
 
@@ -16,8 +16,8 @@ const Product = ({
   isHot,
   isNew,
   image,
+  category,
   name,
-  description,
   smallPrice,
 }: ProductProps) => {
   const navigate = useNavigate();
@@ -43,8 +43,8 @@ const Product = ({
         />
       </div>
       <div className="w-full flex flex-col items-start justify-start gap-[16px]">
-        <h3 className="text-[16px]">{name}</h3>
-        <p className="text-[16px]">{description}</p>
+        <h3 className="text-[16px]">{category}</h3>
+        <p className="text-[16px]">{name}</p>
         <p className="text-[20px] font-[500]">AU$ {smallPrice.toFixed(2)}</p>
       </div>
     </div>

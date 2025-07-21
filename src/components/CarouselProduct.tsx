@@ -8,7 +8,6 @@ interface CarouselProductProps {
   image: string;
   category: string;
   name: string;
-  description: string;
   smallPrice: number;
 }
 

@@ -13,8 +13,8 @@ const ProductsGalary = React.forwardRef<HTMLDivElement>((_, ref) => {
           key={product.id}
           id={product.id}
           image={product.productImages[0]}
-          name={product.category}
-          description={product.name}
+          category={product.category}
+          name={product.name}
           smallPrice={product.smallPrice}
           isHot={product.isHot}
           isNew={product.isNew}

@@ -64,7 +64,6 @@ const ProductsCarousel = ({ currentProductId }: ProductsCarouselProps) => {
                   image={product.productImages[0]}
                   category={product.category}
                   name={product.name}
-                  description={product.description}
                   smallPrice={product.smallPrice}
                 />
               </div>
