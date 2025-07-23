@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/contexts/useCart";
 import CartItem from "./CartItem";
+import { redirectToCheckout } from "@/utils/checkout";
 
 interface CartProps {
   isOpen: boolean;
@@ -10,6 +11,16 @@ interface CartProps {
 
 const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
   const { state } = useCart();
+
+  // Обработчик для кнопки checkout
+  const handleCheckout = () => {
+    try {
+      redirectToCheckout(state.items, state.total);
+    } catch (error) {
+      console.error("Ошибка при переходе к оплате:", error);
+      // Здесь можно добавить показ toast с ошибкой
+    }
+  };
 
   // Блокировка скролла страницы когда корзина открыта
   useEffect(() => {
@@ -147,7 +158,10 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
                     </div>
 
                     {/* Кнопка checkout */}
-                    <button className="w-full bg-[#d20001] hover:bg-[#d20001]/80 text-[#fff] py-[16px] px-[24px] font-[700] uppercase border-none cursor-pointer transition-colors">
+                    <button
+                      onClick={handleCheckout}
+                      className="w-full bg-[#d20001] hover:bg-[#d20001]/80 text-[#fff] py-[16px] px-[24px] font-[700] uppercase border-none cursor-pointer transition-colors"
+                    >
                       Check out
                     </button>
                   </div>
