@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
                   Email
                 </p>
                 <p className="text-[#777] text-[14px] mb-[8px]">
-                  support@popmart.com
+                  support@themonsters-labubu.com
                 </p>
                 <p className="text-[#777] underline text-[14px] border border-[#777] inline-block px-[12px] py-[6px] hover:bg-[#fff] hover:text-[#000] transition-colors duration-300 cursor-pointer">
                   Email us
