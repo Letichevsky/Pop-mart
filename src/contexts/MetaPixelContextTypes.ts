@@ -3,6 +3,10 @@ import type { ReactNode } from "react";
 
 export interface MetaPixelContextType {
   trackEvent: (eventName: string, parameters?: Record<string, unknown>) => void;
+  trackCustom: (
+    eventName: string,
+    parameters?: Record<string, unknown>
+  ) => void;
   trackPageView: () => void;
   trackViewContent: (product: {
     id: number;

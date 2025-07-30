@@ -37,6 +37,20 @@ export const useMetaPixel = (pixelId: string | null) => {
     }
   };
 
+  // Отправка кастомных событий
+  const trackCustom = (
+    eventName: string,
+    parameters?: Record<string, unknown>
+  ) => {
+    if (typeof window === "undefined" || !window.fbq) return;
+
+    if (parameters) {
+      window.fbq("trackCustom", eventName, parameters);
+    } else {
+      window.fbq("trackCustom", eventName);
+    }
+  };
+
   // Отслеживание просмотра страницы
   const trackPageView = () => {
     if (typeof window === "undefined" || !window.fbq) return;
@@ -175,11 +189,15 @@ export const useMetaPixel = (pixelId: string | null) => {
   };
 
   useEffect(() => {
-    initializePixel();
+    // Инициализируем только если pixelId изменился и не null
+    if (pixelId && !isInitialized.current) {
+      initializePixel();
+    }
   }, [pixelId]);
 
   return {
     trackEvent,
+    trackCustom,
     trackPageView,
     trackViewContent,
     trackAddToCart,

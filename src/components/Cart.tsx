@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/contexts/useCart";
+import { useMetaPixelContext } from "@/hooks/useMetaPixelContext";
 import CartItem from "./CartItem";
 import { redirectToCheckout } from "@/utils/checkout";
 
@@ -11,10 +12,22 @@ interface CartProps {
 
 const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
   const { state } = useCart();
+  const { trackCustom, trackInitiateCheckout } = useMetaPixelContext();
 
   // Обработчик для кнопки checkout
   const handleCheckout = () => {
     try {
+      // Отслеживаем инициацию checkout
+      trackInitiateCheckout({
+        items: state.items.map((item) => ({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+        })),
+        total: state.total,
+      });
+
       redirectToCheckout(state.items, state.total);
     } catch (error) {
       console.error("Ошибка при переходе к оплате:", error);
@@ -26,6 +39,17 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+
+      // Отслеживаем открытие корзины
+      trackCustom("CartOpen", {
+        content_ids: state.items.map((item) => item.id),
+        value: state.total,
+        currency: "AUD",
+        num_items: state.itemCount,
+        custom_data: {
+          items_count: state.items.length,
+        },
+      });
     } else {
       document.body.style.overflow = "unset";
     }
@@ -34,7 +58,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isOpen]);
+  }, [isOpen, state.items, state.total, state.itemCount, trackCustom]);
 
   return (
     <AnimatePresence>

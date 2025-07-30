@@ -6,15 +6,13 @@ import ProductPage from "@/pages/product-page";
 import { CartProvider } from "@/contexts/CartContext";
 import { MetaPixelProvider } from "@/contexts/MetaPixelContext";
 import { MetaPixelTracker } from "@/components/MetaPixelTracker";
-import { MetaPixelTest } from "@/components/MetaPixelTest";
-import { PixelInfo } from "@/components/PixelInfo";
 import { Toaster } from "@/components/ui/toaster";
 
 function App() {
   return (
-    <CartProvider>
-      <Router>
-        <MetaPixelProvider pixelId={null}>
+    <Router>
+      <MetaPixelProvider pixelId={null}>
+        <CartProvider>
           <MetaPixelTracker />
           <div className="w-full min-h-screen bg-white">
             <Header />
@@ -24,12 +22,10 @@ function App() {
             </Routes>
             <Footer />
           </div>
-          <MetaPixelTest />
-          <PixelInfo />
           <Toaster />
-        </MetaPixelProvider>
-      </Router>
-    </CartProvider>
+        </CartProvider>
+      </MetaPixelProvider>
+    </Router>
   );
 }
 
