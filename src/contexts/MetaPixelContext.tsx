@@ -11,8 +11,19 @@ export const MetaPixelProvider: React.FC<MetaPixelProviderProps> = ({
   pixelId: defaultPixelId,
 }) => {
   const { pixelId: dynamicPixelId } = useDynamicPixel();
+
   // Используем динамический Pixel ID, если он есть, иначе дефолтный
   const finalPixelId = dynamicPixelId || defaultPixelId;
+
+  console.log(
+    "MetaPixelProvider - Dynamic ID:",
+    dynamicPixelId,
+    "Default ID:",
+    defaultPixelId,
+    "Final ID:",
+    finalPixelId
+  );
+
   const pixel = useMetaPixel(finalPixelId);
 
   return (

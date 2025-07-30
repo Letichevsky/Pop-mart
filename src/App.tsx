@@ -14,7 +14,7 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <MetaPixelProvider pixelId="YOUR_PIXEL_ID_HERE">
+        <MetaPixelProvider pixelId={null}>
           <MetaPixelTracker />
           <div className="w-full min-h-screen bg-white">
             <Header />

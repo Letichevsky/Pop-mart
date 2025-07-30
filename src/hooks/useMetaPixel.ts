@@ -6,15 +6,17 @@ declare global {
   }
 }
 
-export const useMetaPixel = (pixelId: string) => {
+export const useMetaPixel = (pixelId: string | null) => {
   const isInitialized = useRef(false);
 
   // Инициализация Meta Pixel
   const initializePixel = () => {
-    if (typeof window === "undefined" || isInitialized.current) return;
+    if (typeof window === "undefined" || isInitialized.current || !pixelId)
+      return;
 
     // Проверяем, что Meta Pixel уже загружен из HTML
     if (window.fbq) {
+      console.log("Initializing Meta Pixel with ID:", pixelId);
       window.fbq("init", pixelId);
       window.fbq("track", "PageView");
       isInitialized.current = true;

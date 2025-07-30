@@ -55,5 +55,5 @@ export const MetaPixelContext = createContext<MetaPixelContextType | undefined>(
 
 export interface MetaPixelProviderProps {
   children: ReactNode;
-  pixelId: string;
+  pixelId: string | null;
 }
