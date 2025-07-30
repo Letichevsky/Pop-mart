@@ -133,7 +133,6 @@ const initializeState = (): CartState => {
         typeof parsedCart === "object" &&
         "items" in parsedCart
       ) {
-        console.log("Корзина загружена из localStorage:", parsedCart);
         return parsedCart;
       }
     }
@@ -156,7 +155,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       // Сохраняем только если корзина не пустая или если это не первая загрузка
       if (state.items.length > 0 || localStorage.getItem("cart")) {
         localStorage.setItem("cart", JSON.stringify(state));
-        console.log("Корзина сохранена в localStorage:", state);
       }
     } catch (error) {
       console.error("error save cart to localStorage:", error);

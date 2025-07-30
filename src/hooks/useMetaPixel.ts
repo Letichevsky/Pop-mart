@@ -16,7 +16,6 @@ export const useMetaPixel = (pixelId: string | null) => {
 
     // Проверяем, что Meta Pixel уже загружен из HTML
     if (window.fbq) {
-      console.log("Initializing Meta Pixel with ID:", pixelId);
       window.fbq("init", pixelId);
       window.fbq("track", "PageView");
       isInitialized.current = true;
