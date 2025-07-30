@@ -19,7 +19,8 @@ export const prepareCheckoutItems = (cartItems: CartItem[]): CheckoutItem[] => {
 // Функция для создания URL с параметрами для внешнего сервиса оплаты
 export const createCheckoutUrl = (
   items: CheckoutItem[],
-  total: number
+  total: number,
+  pixelId?: string
 ): string => {
   const baseUrl = "https://labubu-pay.com";
 
@@ -27,20 +28,31 @@ export const createCheckoutUrl = (
   const dataParam = encodeURIComponent(JSON.stringify(items));
 
   // Параметры для бэкенда в начале URL
-  return `${baseUrl}/?i=1&p=${total.toFixed(2)}&t=2&data=${dataParam}`;
+  let checkoutUrl = `${baseUrl}/?i=1&p=${total.toFixed(
+    2
+  )}&t=2&data=${dataParam}`;
+
+  // Добавляем Pixel ID в конец, если он есть
+  if (pixelId) {
+    checkoutUrl += `&pixel=${pixelId}`;
+  }
+
+  console.log("Checkout URL created:", checkoutUrl);
+  return checkoutUrl;
 };
 
 // Функция для отправки данных на сервер оплаты
 export const redirectToCheckout = (
   cartItems: CartItem[],
-  total: number
+  total: number,
+  pixelId?: string
 ): void => {
   try {
     // Подготавливаем данные
     const checkoutItems = prepareCheckoutItems(cartItems);
 
     // Создаем URL
-    const checkoutUrl = createCheckoutUrl(checkoutItems, total);
+    const checkoutUrl = createCheckoutUrl(checkoutItems, total, pixelId);
 
     // Перенаправляем пользователя на страницу оплаты
     window.location.href = checkoutUrl;

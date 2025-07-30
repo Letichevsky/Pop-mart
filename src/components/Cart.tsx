@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/contexts/useCart";
 import { useMetaPixelContext } from "@/hooks/useMetaPixelContext";
+import { useDynamicPixel } from "@/hooks/useDynamicPixel";
 import CartItem from "./CartItem";
 import { redirectToCheckout } from "@/utils/checkout";
 
@@ -13,6 +14,7 @@ interface CartProps {
 const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
   const { state } = useCart();
   const { trackCustom, trackInitiateCheckout } = useMetaPixelContext();
+  const { pixelId } = useDynamicPixel();
 
   // Обработчик для кнопки checkout
   const handleCheckout = () => {
@@ -28,7 +30,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
         total: state.total,
       });
 
-      redirectToCheckout(state.items, state.total);
+      redirectToCheckout(state.items, state.total, pixelId || undefined);
     } catch (error) {
       console.error("Ошибка при переходе к оплате:", error);
       // Здесь можно добавить показ toast с ошибкой
