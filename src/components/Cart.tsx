@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/contexts/useCart";
+import { useMetaPixelContext } from "@/hooks/useMetaPixelContext";
+import { useDynamicPixel } from "@/hooks/useDynamicPixel";
 import CartItem from "./CartItem";
 import { redirectToCheckout } from "@/utils/checkout";
 
@@ -11,11 +13,24 @@ interface CartProps {
 
 const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
   const { state } = useCart();
+  const { trackCustom, trackInitiateCheckout } = useMetaPixelContext();
+  const { pixelId } = useDynamicPixel();
 
   // Обработчик для кнопки checkout
   const handleCheckout = () => {
     try {
-      redirectToCheckout(state.items, state.total);
+      // Отслеживаем инициацию checkout
+      trackInitiateCheckout({
+        items: state.items.map((item) => ({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+        })),
+        total: state.total,
+      });
+
+      redirectToCheckout(state.items, state.total, pixelId || undefined);
     } catch (error) {
       console.error("Ошибка при переходе к оплате:", error);
       // Здесь можно добавить показ toast с ошибкой
@@ -26,6 +41,17 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+
+      // Отслеживаем открытие корзины
+      trackCustom("CartOpen", {
+        content_ids: state.items.map((item) => item.id),
+        value: state.total,
+        currency: "AUD",
+        num_items: state.itemCount,
+        custom_data: {
+          items_count: state.items.length,
+        },
+      });
     } else {
       document.body.style.overflow = "unset";
     }
@@ -34,7 +60,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isOpen]);
+  }, [isOpen, state.items, state.total, state.itemCount, trackCustom]);
 
   return (
     <AnimatePresence>
@@ -61,7 +87,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
               stiffness: 200,
               duration: 0.3,
             }}
-            className="fixed top-[0] right-[0] h-[100vh] w-[100%] md:w-[75%] lg:w-[50%] bg-[#fff] z-[70] flex flex-col"
+            className="fixed top-[0] right-[0] h-[100svh] w-[100%] md:w-[75%] lg:w-[50%] bg-[#fff] z-[70] flex flex-col"
           >
             {/* Заголовок с крестиком */}
             <div className="flex items-center justify-end p-[24px] flex-shrink-0">

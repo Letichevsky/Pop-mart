@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart } from "@/contexts/useCart";
+import { useMetaPixelContext } from "@/hooks/useMetaPixelContext";
 import type { CartItem as CartItemType } from "@/contexts/cartTypes";
 import products from "@/data/products.json";
 
@@ -9,6 +10,7 @@ interface CartItemProps {
 
 const CartItem: React.FC<CartItemProps> = ({ item }) => {
   const { updateQuantity, removeItem } = useCart();
+  const { trackCustom } = useMetaPixelContext();
 
   // Находим продукт для определения ограничений
   const product = products.products.find((p) => p.id === item.id);
@@ -24,11 +26,18 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
   const handleQuantityChange = (newQuantity: number) => {
     if (newQuantity > 0 && newQuantity <= maxQuantity) {
       updateQuantity(item.id, newQuantity, item.size);
+      trackCustom("CartItemQuantityChanged", {
+        productId: item.id,
+        quantity: newQuantity,
+      });
     }
   };
 
   const handleRemove = () => {
     removeItem(item.id, item.size);
+    trackCustom("CartItemRemoved", {
+      productId: item.id,
+    });
   };
 
   return (

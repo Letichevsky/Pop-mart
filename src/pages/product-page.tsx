@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import products from "@/data/products.json";
 import PageSpacer from "@/components/PageSpacer";
@@ -7,6 +7,7 @@ import { cn } from "@/utils/cn";
 import StatusMark from "@/components/StatusMark";
 import ProductsCarousel from "@/components/ProductsCarousel";
 import { useCart } from "@/contexts/useCart";
+import { useMetaPixelContext } from "@/hooks/useMetaPixelContext";
 
 interface Product {
   id: number;
@@ -28,12 +29,15 @@ const ProductPage = () => {
   const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
   const { addItem, openCart } = useCart();
+  const { trackViewContent, trackCustom, trackAddToCart } =
+    useMetaPixelContext();
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState<"small" | "big">("small");
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [imageSource, setImageSource] = useState<ImageSource>("gallery");
+  const viewContentSent = useRef<Set<number>>(new Set());
 
   useEffect(() => {
     // Скролл наверх при загрузке страницы
@@ -51,12 +55,32 @@ const ProductPage = () => {
         setSize("small");
         setIsDetailsOpen(false);
         setImageSource("gallery");
+
+        // Отслеживаем просмотр товара только один раз
+        if (!viewContentSent.current.has(foundProduct.id)) {
+          console.log(
+            "Sending ViewContent event for product:",
+            foundProduct.id
+          );
+          trackViewContent({
+            id: foundProduct.id,
+            name: foundProduct.name,
+            category: foundProduct.category,
+            price: foundProduct.smallPrice,
+          });
+          viewContentSent.current.add(foundProduct.id);
+        } else {
+          console.log(
+            "ViewContent event already sent for product:",
+            foundProduct.id
+          );
+        }
       } else {
         // Если продукт не найден, перенаправляем на главную
         navigate("/");
       }
     }
-  }, [productId, navigate]);
+  }, [productId, navigate, trackViewContent]);
 
   // Функция для получения текущего изображения
   const getCurrentImage = () => {
@@ -83,6 +107,24 @@ const ProductPage = () => {
     if (quantity > (newSize === "small" ? 12 : 2)) {
       setQuantity(newSize === "small" ? 12 : 2);
     }
+
+    // Отслеживаем изменение размера
+    if (product) {
+      trackCustom("SizeSelection", {
+        content_ids: [product.id],
+        content_name: product.name,
+        content_category: product.category,
+        value:
+          newSize === "small"
+            ? product.smallPrice
+            : product.bigPrice || product.smallPrice,
+        currency: "AUD",
+        custom_data: {
+          size: newSize,
+          previous_size: size,
+        },
+      });
+    }
   };
 
   // Функция для добавления товара в корзину
@@ -104,6 +146,19 @@ const ProductPage = () => {
 
     // Добавляем товар в корзину (проверка ограничений происходит внутри addItem)
     addItem(itemToAdd);
+
+    // Отслеживаем добавление в корзину
+    trackAddToCart({
+      id: product.id,
+      name: product.name,
+      category: product.category,
+      price:
+        size === "small"
+          ? product.smallPrice
+          : product.bigPrice || product.smallPrice,
+      quantity: quantity,
+      size: product.sizeImages ? size : undefined,
+    });
   };
 
   if (!product) {
@@ -265,7 +320,29 @@ const ProductPage = () => {
               </div>
               <div className="flex items-center border-gray-300">
                 <button
-                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  onClick={() => {
+                    const newQuantity = Math.max(1, quantity - 1);
+                    setQuantity(newQuantity);
+                    // Отслеживаем изменение количества
+                    if (product && newQuantity !== quantity) {
+                      trackCustom("QuantityChange", {
+                        content_ids: [product.id],
+                        content_name: product.name,
+                        content_category: product.category,
+                        value:
+                          (size === "small"
+                            ? product.smallPrice
+                            : product.bigPrice || product.smallPrice) *
+                          newQuantity,
+                        currency: "AUD",
+                        custom_data: {
+                          size: size,
+                          quantity: newQuantity,
+                          previous_quantity: quantity,
+                        },
+                      });
+                    }
+                  }}
                   disabled={quantity <= 1}
                   className="w-[40px] h-[40px] flex items-center justify-center bg-white hover:bg-gray-50 disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400 transition-colors select-none rounded-none border-[1px] border-[#000] text-[20px] leading-none pb-[2px]"
                 >
@@ -281,7 +358,27 @@ const ProductPage = () => {
                         ? 12
                         : 2
                       : Infinity;
-                    setQuantity(Math.min(quantity + 1, maxQuantity));
+                    const newQuantity = Math.min(quantity + 1, maxQuantity);
+                    setQuantity(newQuantity);
+                    // Отслеживаем изменение количества
+                    if (product && newQuantity !== quantity) {
+                      trackCustom("QuantityChange", {
+                        content_ids: [product.id],
+                        content_name: product.name,
+                        content_category: product.category,
+                        value:
+                          (size === "small"
+                            ? product.smallPrice
+                            : product.bigPrice || product.smallPrice) *
+                          newQuantity,
+                        currency: "AUD",
+                        custom_data: {
+                          size: size,
+                          quantity: newQuantity,
+                          previous_quantity: quantity,
+                        },
+                      });
+                    }
                   }}
                   disabled={
                     product.sizeImages
@@ -309,6 +406,35 @@ const ProductPage = () => {
                   handleAddToCart();
                   // Открываем корзину после добавления товара
                   openCart();
+
+                  // Отслеживаем покупку сейчас
+                  if (product) {
+                    trackCustom("BuyNow", {
+                      content_ids: [product.id],
+                      content_name: product.name,
+                      content_category: product.category,
+                      value:
+                        (size === "small"
+                          ? product.smallPrice
+                          : product.bigPrice || product.smallPrice) * quantity,
+                      currency: "AUD",
+                      contents: [
+                        {
+                          id: product.id,
+                          quantity: quantity,
+                          item_price:
+                            size === "small"
+                              ? product.smallPrice
+                              : product.bigPrice || product.smallPrice,
+                        },
+                      ],
+                      custom_data: {
+                        size: size,
+                        quantity: quantity,
+                        purchase_type: "direct",
+                      },
+                    });
+                  }
                 }}
                 className="w-full text-nowrap text-[#fff] bg-[#d20001] px-[32px] py-[16px] hover:bg-[#d20001]/80 transition-colors uppercase font-[700] border-none cursor-pointer"
               >
@@ -322,7 +448,28 @@ const ProductPage = () => {
             >
               <motion.div
                 className="flex items-center justify-between cursor-pointer"
-                onClick={() => setIsDetailsOpen(!isDetailsOpen)}
+                onClick={() => {
+                  const newDetailsOpen = !isDetailsOpen;
+                  setIsDetailsOpen(newDetailsOpen);
+
+                  // Отслеживаем просмотр деталей
+                  if (newDetailsOpen && product) {
+                    trackCustom("ProductDetailsView", {
+                      content_ids: [product.id],
+                      content_name: product.name,
+                      content_category: product.category,
+                      value:
+                        size === "small"
+                          ? product.smallPrice
+                          : product.bigPrice || product.smallPrice,
+                      currency: "AUD",
+                      custom_data: {
+                        size: size,
+                        quantity: quantity,
+                      },
+                    });
+                  }
+                }}
                 whileHover={{ opacity: 0.8 }}
                 whileTap={{ scale: 0.98 }}
               >
