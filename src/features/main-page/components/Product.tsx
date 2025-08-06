@@ -47,7 +47,14 @@ const Product = ({
         <p className="text-[16px] line-clamp-2 break-words overflow-hidden text-ellipsis">
           {name}
         </p>
-        <p className="text-[20px] font-[500]">AU$ {smallPrice.toFixed(2)}</p>
+        <div className="flex flex-col items-start justify-start gap-1">
+          <p className="text-[20px] font-[500] line-through">
+            AU$ {smallPrice.toFixed(2)}
+          </p>
+          <p className="text-[20px] font-[500] text-[#d20001]">
+            AU$ {(smallPrice / 2).toFixed(2)}
+          </p>
+        </div>
       </div>
     </div>
   );

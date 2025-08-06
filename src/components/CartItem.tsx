@@ -61,8 +61,11 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
             </p>
           )}
           <div className="">
-            <p className="text-[18px] font-[600] text-[#d20001]">
+            <p className="text-[18px] font-[600] line-through">
               AU$ {item.price.toFixed(2)}
+            </p>
+            <p className="text-[18px] font-[600] text-[#d20001]">
+              AU$ {(item.price / 2).toFixed(2)}
             </p>
             <p className="text-[12px] text-[#000]">
               Estimated Shipping Date:{" "}
@@ -114,8 +117,8 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
 
       {/* Общая стоимость товара */}
       <div className="h-[100%] flex flex-col items-end gap-[4px] min-w-[80px] ml-4">
-        <p className="text-[18px] font-[600] text-[#000] text-nowrap">
-          AU$ {(item.price * item.quantity).toFixed(2)}
+        <p className="text-[18px] font-[600] text-[#000] text-nowrap text-right">
+          AU$ {((item.price * item.quantity) / 2).toFixed(2)}
         </p>
         <button
           onClick={handleRemove}
