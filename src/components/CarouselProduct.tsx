@@ -51,9 +51,14 @@ const CarouselProduct = ({
           {category}
         </h3>
         <p className="text-[12px] text-gray-600 line-clamp-2">{name}</p>
-        <p className="text-[16px] font-semibold text-black mt-auto">
-          AU$ {smallPrice.toFixed(2)}
-        </p>
+        <div className="flex flex-col items-center justify-start gap-0">
+          <p className="text-[16px] font-semibold text-black mt-auto line-through">
+            AU$ {smallPrice.toFixed(2)}
+          </p>
+          <p className="text-[16px] font-semibold text-[#d20001] mt-auto">
+            AU$ {(smallPrice / 2).toFixed(2)}
+          </p>
+        </div>
       </div>
     </div>
   );
