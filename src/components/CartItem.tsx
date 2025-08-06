@@ -117,7 +117,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
 
       {/* Общая стоимость товара */}
       <div className="h-[100%] flex flex-col items-end gap-[4px] min-w-[80px] ml-4">
-        <p className="text-[18px] font-[600] text-[#000] text-nowrap">
+        <p className="text-[18px] font-[600] text-[#000] text-nowrap text-right">
           AU$ {((item.price * item.quantity) / 2).toFixed(2)}
         </p>
         <button
